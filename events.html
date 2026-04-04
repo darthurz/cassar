@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events – California SAR</title>
+<link rel="stylesheet" href="shared.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+<style>
+.events-list { display: grid; gap: 1.5rem; }
+.event-card { background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 0; display: grid; grid-template-columns: 100px 1fr; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+.event-card:hover { box-shadow: 0 6px 24px rgba(26,39,68,0.1); transform: translateY(-2px); }
+.event-date { background: var(--navy); color: var(--white); padding: 1.5rem 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.event-date .month { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.6); font-weight: 700; font-family: var(--body); }
+.event-date .day { font-family: var(--serif); font-size: 2.4rem; font-weight: 700; line-height: 1; color: var(--white); }
+.event-date .year { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.event-card.featured .event-date { background: var(--crimson); }
+.event-card.america250 .event-date { background: var(--gold); }
+.event-card.america250 .event-date .month, .event-card.america250 .event-date .day, .event-card.america250 .event-date .year { color: var(--navy); }
+.event-info { padding: 1.5rem 2rem; }
+.event-info .tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); font-weight: 700; font-family: var(--body); margin-bottom: 0.3rem; }
+.event-card.featured .event-info .tag { color: var(--crimson); }
+.event-info h3 { font-family: var(--serif); font-size: 1.2rem; color: var(--navy); margin-bottom: 0.3rem; }
+.event-info .meta { font-size: 13px; color: var(--text-muted); margin-bottom: 0.6rem; }
+.event-info p { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+.event-info .register-link { font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: none; margin-top: 0.8rem; display: inline-block; border: 1px solid var(--navy); padding: 7px 16px; border-radius: 2px; transition: all 0.2s; }
+.event-info .register-link:hover { background: var(--navy); color: var(--white); }
+.year-header { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); padding: 1rem 0 0.5rem; border-bottom: 2px solid var(--gold); margin-bottom: 1.5rem; margin-top: 2rem; }
+@media(max-width:600px){ .event-card { grid-template-columns:70px 1fr; } }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>California Society · Sons of the American Revolution · Since 1889</span>
+  <span><a href="https://www.sar.org" target="_blank">National SAR ↗</a> &nbsp;&nbsp; <a href="members.html">Members Login</a></span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 32 32" style="flex-shrink:0;vertical-align:middle;margin-bottom:2px" xmlns="http://www.w3.org/2000/svg"><polygon points="16,2 19.8,12 30.5,12 22,18.5 25.2,29 16,22.5 6.8,29 10,18.5 1.5,12 12.2,12" fill="#b8860b"/></svg> California SAR</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs ▾</a><div class="dropdown"><a href="programs.html#america250">America 250</a><a href="programs.html#colorguard">Color Guard</a></div></li>
+      <li><a href="youth.html">Youth ▾</a><div class="dropdown"><a href="youth.html#poster">Poster Contest</a><a href="youth.html#eagle">Eagle Scout</a></div></li>
+      <li><a href="chapters.html">Chapters</a></li>
+      <li><a href="events.html" class="active-page">Events</a></li>
+      <li><a href="members.html">Members ▾</a><div class="dropdown"><a href="members.html#registrar">Registrar</a><a href="officers.html">Officers</a></div></li>
+      <li><a href="join.html" class="nav-cta">Join the SAR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Calendar</div>
+    <h1>California SAR Events</h1>
+    <p>Upcoming meetings, ceremonies, youth program deadlines, and national events for California SAR members and the public.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> Events</div>
+
+<div class="page-body">
+  <div class="fade-up">
+    <div class="section-label">Upcoming Events</div>
+    <h2 class="section-title">2025 Event Calendar</h2>
+    <div class="divider"></div>
+
+    <div class="year-header">Spring 2025</div>
+    <div class="events-list">
+      <div class="event-card featured">
+        <div class="event-date"><div class="month">Apr</div><div class="day">23</div><div class="year">2025</div></div>
+        <div class="event-info">
+          <div class="tag">Featured · California SAR</div>
+          <h3>151st Spring Membership Meeting</h3>
+          <div class="meta">📍 Wyndham Visalia Hotel, Visalia, CA &nbsp;·&nbsp; April 23–26, 2025</div>
+          <p>The 151st Spring Membership Meeting is hosted by the Yosemite Chapter SAR. Members from across California gather for business meetings, awards presentations, and fellowship. Registration and hotel information available at the link below.</p>
+          <a href="https://www.californiasar.org/event/151st-spring-membership-meeting/" target="_blank" class="register-link">Registration & Hotel Info →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-header">Summer 2025</div>
+    <div class="events-list">
+      <div class="event-card featured">
+        <div class="event-date"><div class="month">Jul</div><div class="day">10</div><div class="year">2025</div></div>
+        <div class="event-info">
+          <div class="tag">Featured · National SAR</div>
+          <h3>SAR 136th National Congress</h3>
+          <div class="meta">📅 July 10–16, 2025</div>
+          <p>The annual National Congress of the Sons of the American Revolution brings together SAR members from all 50 states and international chapters for the Society's highest governing meeting, awards, and events.</p>
+          <a href="https://www.sar.org/events/" target="_blank" class="register-link">National SAR Events ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-header">2026 — America 250</div>
+    <div class="events-list">
+      <div class="event-card america250">
+        <div class="event-date"><div class="month">Jul</div><div class="day">4</div><div class="year">2026</div></div>
+        <div class="event-info">
+          <div class="tag">America 250 · Historic</div>
+          <h3>250th Anniversary of American Independence</h3>
+          <div class="meta">📅 July 4, 2026 &nbsp;·&nbsp; Statewide & National</div>
+          <p>On July 4, 2026, America celebrates 250 years of independence. The California SAR will participate in commemorations, ceremonies, and community events across the state marking this once-in-a-generation milestone.</p>
+          <a href="https://america250sar.org" target="_blank" class="register-link">America 250 Resources ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--parchment); border-radius:4px; padding:2rem 2.5rem; margin-top:3rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap;">
+      <div>
+        <h3 style="font-family:var(--serif); font-size:1.2rem; color:var(--navy); margin-bottom:0.3rem;">Chapter Events</h3>
+        <p style="font-size:14px; color:var(--text-muted);">Each of California's 24 chapters hosts its own meetings, events, and programs throughout the year. Contact your local chapter for their specific calendar.</p>
+      </div>
+      <a href="chapters.html" class="btn-primary">Find Your Chapter</a>
+    </div>
+
+    <div style="background:var(--navy); border-radius:4px; padding:2rem 2.5rem; margin-top:1.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap;">
+      <div>
+        <h3 style="font-family:var(--serif); font-size:1.2rem; color:var(--gold-light); margin-bottom:0.3rem;">Submit an Event</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.65);">California SAR chapter officers and program chairs can submit events to be listed on the state calendar.</p>
+      </div>
+      <a data-m="Z2poaWxsQG1hYy5jb20=" href="#" style="background:var(--white); color:var(--navy); padding:11px 22px; font-family:var(--body); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; text-decoration:none; border-radius:2px;">Submit an Event</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>★ California SAR</h3><p>The California Society of the Sons of the American Revolution — honoring our patriot ancestors since 1889.</p><br><a href="https://www.sar.org" target="_blank" class="sar-link">National SAR (sar.org) ↗</a></div>
+    <div class="footer-col"><h4>About & Join</h4><ul><li><a href="about.html">About the SAR</a></li><li><a href="join.html">How to Join</a></li><li><a href="chapters.html">Find a Chapter</a></li></ul></div>
+    <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html">All Programs</a></li><li><a href="youth.html">Youth Programs</a></li></ul></div>
+    <div class="footer-col"><h4>Members</h4><ul><li><a href="members.html">Member Login</a></li><li><a href="officers.html">Officers</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 California Society, Sons of the American Revolution. A 501(c)(3) non-profit organization.</span></div>
+</footer>
+<script>document.querySelectorAll('.fade-up').forEach(el=>new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.08}).observe(el));</script>
+<style>.em-hide{opacity:0}</style>
+<script>
+(function(){
+  var d=atob;
+  document.querySelectorAll('[data-m]').forEach(function(el){
+    var e=d(el.getAttribute('data-m'));
+    if(el.tagName==='A') el.href='mailto:'+e;
+    if(el.hasAttribute('data-mt')){el.textContent=e;el.classList.remove('em-hide');}
+  });
+})();
+</script>
+</body></html>

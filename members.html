@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Members – California SAR</title>
+<link rel="stylesheet" href="shared.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+<style>
+.members-grid { display: grid; grid-template-columns: 240px 1fr; gap: 3rem; }
+.members-sidebar { position: sticky; top: 90px; align-self: start; }
+.sidebar-nav { background: var(--parchment); border-radius: 4px; overflow: hidden; }
+.sidebar-nav h4 { background: var(--navy); color: var(--gold-light); padding: 12px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; font-family: var(--body); }
+.sidebar-nav a { display: block; padding: 10px 16px; font-size: 13px; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.05); font-family: var(--body); transition: background 0.15s, color 0.15s; }
+.sidebar-nav a:hover { background: var(--white); color: var(--navy); font-weight: 600; }
+.member-section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+.member-section:last-child { border-bottom: none; }
+.member-section h2 { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); margin-bottom: 0.5rem; }
+.member-section p { color: var(--text-mid); font-size: 15px; line-height: 1.8; margin-bottom: 1rem; }
+.resource-list { display: grid; gap: 0.8rem; }
+.resource-item { display: flex; align-items: center; gap: 1rem; padding: 12px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 3px; text-decoration: none; color: var(--text-mid); font-size: 14px; transition: all 0.2s; }
+.resource-item:hover { border-color: var(--gold); background: var(--parchment); color: var(--navy); }
+.resource-item .icon { width: 36px; height: 36px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.resource-item h4 { font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+.resource-item p { font-size: 12px; color: var(--text-muted); line-height: 1.4; margin: 0; }
+.login-box { background: var(--navy); color: var(--white); border-radius: 4px; padding: 2.5rem; margin-bottom: 2rem; text-align: center; }
+.login-box h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--gold-light); margin-bottom: 0.6rem; }
+.login-box p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; }
+.btn-gold { background: var(--gold); color: var(--navy); padding: 12px 26px; font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: background 0.2s; }
+.btn-gold:hover { background: var(--gold-light); }
+@media(max-width:900px){ .members-grid { grid-template-columns:1fr; } .members-sidebar { position:static; } }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>California Society · Sons of the American Revolution · Since 1889</span>
+  <span><a href="https://www.sar.org" target="_blank">National SAR ↗</a> &nbsp;&nbsp; <a href="members.html">Members Login</a></span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 32 32" style="flex-shrink:0;vertical-align:middle;margin-bottom:2px" xmlns="http://www.w3.org/2000/svg"><polygon points="16,2 19.8,12 30.5,12 22,18.5 25.2,29 16,22.5 6.8,29 10,18.5 1.5,12 12.2,12" fill="#b8860b"/></svg> California SAR</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs ▾</a><div class="dropdown"><a href="programs.html#america250">America 250</a><a href="programs.html#colorguard">Color Guard</a></div></li>
+      <li><a href="youth.html">Youth ▾</a><div class="dropdown"><a href="youth.html#poster">Poster Contest</a><a href="youth.html#eagle">Eagle Scout</a></div></li>
+      <li><a href="chapters.html">Chapters</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html" class="active-page">Members ▾</a><div class="dropdown"><a href="#registrar">Registrar</a><a href="#treasurer">Treasurer</a><a href="#secretary">Secretary</a><a href="#archive">Meeting Archive</a><a href="#new">New Members</a><a href="officers.html">Officers</a></div></li>
+      <li><a href="join.html" class="nav-cta">Join the SAR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Members Section</div>
+    <h1>California SAR Members</h1>
+    <p>Resources, forms, archives, and information for California SAR members and chapter officers.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> Members</div>
+
+<div class="page-body">
+  <div class="members-grid">
+    <div class="members-sidebar">
+      <div class="login-box">
+        <h3>Member Login</h3>
+        <p>Access the National SAR member database (BLUE) and online systems.</p>
+        <a href="https://members.sar.org/" target="_blank" class="btn-gold">Login to BLUE ↗</a>
+      </div>
+      <div class="sidebar-nav">
+        <h4>Member Resources</h4>
+        <a href="#registrar">Registrar</a>
+        <a href="#treasurer">Treasurer</a>
+        <a href="#secretary">Secretary</a>
+        <a href="#youth">Youth Programs</a>
+        <a href="#archive">Meeting Archive</a>
+        <a href="#new">New Members</a>
+        <a href="officers.html">Officers Directory</a>
+        <a href="https://www.sar.org/patriot-research-system/" target="_blank">Patriot Research System ↗</a>
+        <a href="https://library.sar.org/" target="_blank">SAR Library ↗</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="member-section fade-up" id="registrar">
+        <div class="section-label">Registrar</div>
+        <h2>Registrar Resources</h2>
+        <p>The California SAR Registrar, <strong>Terry L. Briggs</strong>, oversees all membership applications and genealogical documentation for the Society. Contact the registrar for guidance on new applications, supplemental applications, or genealogical questions.</p>
+        <p>Email: <a data-m="dGxiYWlhQGNvbWNhc3QubmV0" data-mt="1" class="em-hide" style="color:var(--crimson);"></a></p>
+        <div class="resource-list">
+          <a href="https://www.sar.org/nssar-genealogy-policies-materials/" target="_blank" class="resource-item">
+            <div class="icon">📋</div>
+            <div><h4>SAR Genealogy Policies & Application Guide</h4><p>National SAR application preparation guidelines and genealogy policies</p></div>
+          </a>
+          <a href="https://sarpatriots.sar.org/" target="_blank" class="resource-item">
+            <div class="icon">🔍</div>
+            <div><h4>Patriot Research System (PRS)</h4><p>Search the national database of verified SAR patriot ancestors</p></div>
+          </a>
+          <a href="https://www.sar.org/order-record-copies/" target="_blank" class="resource-item">
+            <div class="icon">📁</div>
+            <div><h4>Online Record Copy & Patriot Search</h4><p>Order copies of SAR genealogical records</p></div>
+          </a>
+          <a href="https://www.sar.org/genealogy-resources/" target="_blank" class="resource-item">
+            <div class="icon">📚</div>
+            <div><h4>Genealogy Resources</h4><p>Additional genealogical research resources from the National SAR</p></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="member-section fade-up" id="treasurer">
+        <div class="section-label">Treasurer</div>
+        <h2>Treasurer Resources</h2>
+        <p>The California SAR Treasurer, <strong>Kevin Bidenkap</strong>, manages the financial affairs of the California Society. Chapter treasurers should contact the state treasurer for guidance on dues, remittances, and financial reporting.</p>
+        <p>Email: <a data-m="YmlkZW5rYXBAZ21haWwuY29t" data-mt="1" class="em-hide" style="color:var(--crimson);"></a></p>
+        <div class="resource-list">
+          <a href="https://members.sar.org/" target="_blank" class="resource-item">
+            <div class="icon">💳</div>
+            <div><h4>Online Dues Payment (BLUE)</h4><p>Pay national dues and access financial records through the member database</p></div>
+          </a>
+          <a data-m="YmlkZW5rYXBAZ21haWwuY29t" href="#" class="resource-item">
+            <div class="icon">📧</div>
+            <div><h4>Contact State Treasurer</h4><p>Questions about state dues, remittances, and financial reporting</p></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="member-section fade-up" id="secretary">
+        <div class="section-label">Secretary</div>
+        <h2>Secretary Resources</h2>
+        <p>The California SAR Secretary, <strong>Christopher Cerillo</strong>, handles official correspondence, meeting minutes, and administrative functions of the Society. Chapter secretaries should contact the state secretary for guidance on reporting and procedures.</p>
+        <p>Email: <a data-m="Z2lybDRkaWFtQGFvbC5jb20=" data-mt="1" class="em-hide" style="color:var(--crimson);"></a></p>
+        <p>Assistant Secretary: <strong>Stephen Andrews</strong> — <a data-m="c3RldmVzdGlraWh1dEBnbWFpbC5jb20=" data-mt="1" class="em-hide" style="color:var(--crimson);"></a></p>
+        <div class="resource-list">
+          <a href="https://members.sar.org/" target="_blank" class="resource-item">
+            <div class="icon">📝</div>
+            <div><h4>Member Database (BLUE)</h4><p>Access member records, reporting forms, and correspondence through the national system</p></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="member-section fade-up" id="youth">
+        <div class="section-label">Youth Programs</div>
+        <h2>Youth Program Information for Members</h2>
+        <p>The Youth Activities Director, <strong>Dan McKelvie</strong>, coordinates all youth program activities across the California Society. Chapter officers running youth programs should contact Dan for guidance on contest administration, annual reports, and budget matters.</p>
+        <p>Email: <a data-m="bWNrZWx2aWVAc2JjZ2xvYmFsLm5ldA==" data-mt="1" class="em-hide" style="color:var(--crimson);"></a></p>
+        <div class="resource-list">
+          <a href="https://www.californiasar.org/wp-content/uploads/Youth-Programs-Summary.pdf" target="_blank" class="resource-item">
+            <div class="icon">📄</div>
+            <div><h4>Youth Programs Summary (PDF)</h4><p>Complete overview of all California SAR youth programs</p></div>
+          </a>
+          <a href="https://www.californiasar.org/wp-content/uploads/CASSARRelease040616.docx" target="_blank" class="resource-item">
+            <div class="icon">📋</div>
+            <div><h4>National SAR Release Form</h4><p>Required for cash prizes of $600 or higher</p></div>
+          </a>
+          <a href="https://www.californiasar.org/wp-content/uploads/CASSAR-Release.pdf" target="_blank" class="resource-item">
+            <div class="icon">📋</div>
+            <div><h4>California SAR Release Form</h4><p>For cash prizes under $600 — no SSN required</p></div>
+          </a>
+          <a href="https://www.californiasar.org/members-section/youth-protection-training/" target="_blank" class="resource-item">
+            <div class="icon">🛡️</div>
+            <div><h4>SAR Youth Protection Training</h4><p>Required training for members working with youth</p></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="member-section fade-up" id="archive">
+        <div class="section-label">Archives</div>
+        <h2>Meeting Archive</h2>
+        <p>Minutes, agendas, and materials from past California SAR membership meetings are archived here for member reference. Please log in to the member database or contact the Secretary to access archived materials.</p>
+        <div class="resource-list">
+          <a href="https://members.sar.org/" target="_blank" class="resource-item">
+            <div class="icon">🗂️</div>
+            <div><h4>Access Meeting Archives (Login Required)</h4><p>Minutes, agendas, and materials from past state meetings</p></div>
+          </a>
+          <a data-m="Z2lybDRkaWFtQGFvbC5jb20=" href="#" class="resource-item">
+            <div class="icon">📧</div>
+            <div><h4>Request Archive Materials</h4><p>Contact the Secretary for specific past meeting documents</p></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="member-section fade-up" id="new">
+        <div class="section-label">Welcome</div>
+        <h2>New Members</h2>
+        <p>Welcome to the California Society of the Sons of the American Revolution! Your membership connects you to over 135 years of California SAR history and a nationwide community of compatriots dedicated to honoring the patriot legacy.</p>
+        <p>As a new member, your chapter officers are your primary point of contact. The following resources will help you get oriented and engaged:</p>
+        <div class="resource-list">
+          <a href="https://members.sar.org/" target="_blank" class="resource-item">
+            <div class="icon">👤</div>
+            <div><h4>Set Up Your Member Profile (BLUE)</h4><p>Access the national member database and set up your profile</p></div>
+          </a>
+          <a href="https://www.sar.org/sar-missions-and-goals/" target="_blank" class="resource-item">
+            <div class="icon">⭐</div>
+            <div><h4>SAR Mission & Goals</h4><p>Learn about the full scope of SAR activities and programs</p></div>
+          </a>
+          <a href="programs.html" class="resource-item">
+            <div class="icon">🎖️</div>
+            <div><h4>California SAR Programs</h4><p>Discover ways to get involved with state and chapter programs</p></div>
+          </a>
+          <a href="youth.html" class="resource-item">
+            <div class="icon">🎓</div>
+            <div><h4>Youth Programs</h4><p>Support and participate in California SAR education programs</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>★ California SAR</h3><p>The California Society of the Sons of the American Revolution — honoring our patriot ancestors since 1889.</p><br><a href="https://www.sar.org" target="_blank" class="sar-link">National SAR (sar.org) ↗</a></div>
+    <div class="footer-col"><h4>About & Join</h4><ul><li><a href="about.html">About the SAR</a></li><li><a href="join.html">How to Join</a></li><li><a href="chapters.html">Find a Chapter</a></li><li><a href="officers.html">Officers</a></li></ul></div>
+    <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html">All Programs</a></li><li><a href="youth.html">Youth Programs</a></li></ul></div>
+    <div class="footer-col"><h4>Members</h4><ul><li><a href="members.html">Member Login</a></li><li><a href="#registrar">Registrar</a></li><li><a href="#treasurer">Treasurer</a></li><li><a href="#secretary">Secretary</a></li><li><a href="#archive">Meeting Archive</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 California Society, Sons of the American Revolution. A 501(c)(3) non-profit organization.</span></div>
+</footer>
+<script>document.querySelectorAll('.fade-up').forEach(el=>new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.08}).observe(el));</script>
+<style>.em-hide{opacity:0}</style>
+<script>
+(function(){
+  var d=atob;
+  document.querySelectorAll('[data-m]').forEach(function(el){
+    var e=d(el.getAttribute('data-m'));
+    if(el.tagName==='A') el.href='mailto:'+e;
+    if(el.hasAttribute('data-mt')){el.textContent=e;el.classList.remove('em-hide');}
+  });
+})();
+</script>
+</body></html>

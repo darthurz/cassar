@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>California SAR — Sons of the American Revolution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243260;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --gold-pale: #f5eed6;
+    --crimson: #8b1a1a;
+    --parchment: #faf7f0;
+    --parchment-dark: #f0ead6;
+    --text: #1a1a1a;
+    --text-mid: #444;
+    --text-muted: #777;
+    --white: #fff;
+    --border: rgba(26,39,68,0.12);
+    --serif: 'Playfair Display', 'Georgia', serif;
+    --body: 'Source Serif 4', Georgia, serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── TOP BAR ─── */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.65);
+    font-size: 12px;
+    font-family: var(--body);
+    letter-spacing: 0.04em;
+    padding: 6px 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar a { color: var(--gold-light); text-decoration: none; }
+  .topbar a:hover { text-decoration: underline; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,39,68,0.08);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 72px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo .star-mark {
+    font-size: 22px;
+    color: var(--gold);
+  }
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin-left: auto;
+    align-items: center;
+  }
+  .nav-links li { position: relative; }
+  .nav-links a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-family: var(--body);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links .dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--white); border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(26,39,68,0.12); min-width: 210px; z-index: 200; }
+  .nav-links li:hover .dropdown { display: block; }
+  .nav-links .dropdown a { padding: 9px 18px; font-size: 12px; color: var(--text-mid); font-weight: 400; text-transform: none; letter-spacing: 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .nav-links .dropdown a:hover { background: var(--parchment); color: var(--navy); }
+  .nav-cta {
+    background: var(--crimson);
+    color: var(--white) !important;
+    padding: 9px 18px !important;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #6e1212 !important; color: var(--white) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(26,39,68,0.97) 0%, rgba(26,39,68,0.85) 60%, rgba(139,26,26,0.4) 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(184,134,11,0.03) 40px,
+        rgba(184,134,11,0.03) 80px
+      );
+  }
+  .hero-seal {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 540px;
+    height: 540px;
+    opacity: 0.06;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-family: var(--body);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold-light); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 4vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.18;
+    margin-bottom: 1.4rem;
+    color: var(--white);
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-desc {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 2.2rem;
+    max-width: 560px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 28px;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 13px 28px;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+  /* Hero card panel */
+  .hero-panel {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+  .hero-panel h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--gold-light);
+    margin-bottom: 1.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.8rem;
+  }
+  .event-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .event-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .event-date-badge {
+    background: var(--crimson);
+    color: var(--white);
+    border-radius: 3px;
+    padding: 6px 10px;
+    text-align: center;
+    min-width: 50px;
+    flex-shrink: 0;
+  }
+  .event-date-badge .month { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; opacity: 0.85; }
+  .event-date-badge .day { font-family: var(--serif); font-size: 22px; line-height: 1; font-weight: 700; }
+  .event-info h4 { font-family: var(--serif); font-size: 15px; color: var(--white); margin-bottom: 3px; line-height: 1.35; }
+  .event-info p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  .event-link { font-size: 12px; color: var(--gold-light); text-decoration: none; font-weight: 600; }
+  .event-link:hover { text-decoration: underline; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 5rem 2rem; }
+  .inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: var(--body);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-intro {
+    font-size: 18px;
+    color: var(--text-mid);
+    max-width: 680px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--gold);
+    margin: 1rem 0 2rem;
+  }
+
+  /* ─── STATS BAND ─── */
+  .stats-band {
+    background: var(--navy);
+    padding: 3.5rem 2rem;
+    color: var(--white);
+  }
+  .stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+    font-family: var(--body);
+  }
+
+  /* ─── ABOUT ─── */
+  .about-section { background: var(--parchment); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--text-mid);
+    margin-bottom: 1.2rem;
+    line-height: 1.85;
+  }
+  .about-highlights { display: grid; gap: 1.2rem; }
+  .highlight-card {
+    background: var(--white);
+    border-left: 4px solid var(--gold);
+    padding: 1.4rem 1.6rem;
+    border-radius: 0 3px 3px 0;
+  }
+  .highlight-card h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .highlight-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ─── JOIN STEPS ─── */
+  .join-section { background: var(--white); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .step-card {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    background: var(--white);
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .step-card:hover { box-shadow: 0 8px 32px rgba(26,39,68,0.1); transform: translateY(-3px); }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--parchment-dark);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step-card h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+  }
+  .step-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .eligibility-box {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .eligibility-box h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    grid-column: 1/-1;
+  }
+  .eligibility-box ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.9;
+  }
+  .eligibility-box ul li::before { content: '★ '; color: var(--gold); font-size: 10px; vertical-align: middle; }
+
+  /* ─── PROGRAMS ─── */
+  .programs-section { background: var(--parchment); }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .program-card {
+    background: var(--white);
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: box-shadow 0.25s, transform 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .program-card:hover { box-shadow: 0 8px 32px rgba(26,39,68,0.1); transform: translateY(-3px); }
+  .program-icon {
+    width: 46px;
+    height: 46px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 20px;
+  }
+  .program-card h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .program-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .program-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .program-link::after { content: ' →'; }
+
+  /* ─── AMERICA 250 BANNER ─── */
+  .america250 {
+    background: var(--crimson);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .america250 .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .america250 h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .america250 h2 span { color: var(--gold-light); }
+  .america250 p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.75;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 32px;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+
+  /* ─── YOUTH ─── */
+  .youth-section { background: var(--white); }
+  .youth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .youth-programs-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .youth-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.5;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+    background: var(--white);
+  }
+  .youth-item:hover { background: var(--parchment); border-color: var(--gold); color: var(--navy); }
+  .youth-item .icon { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+  /* ─── CHAPTERS ─── */
+  .chapters-section { background: var(--parchment); }
+  .chapters-finder {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    max-width: 560px;
+  }
+  .chapters-finder h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.6rem; }
+  .chapters-finder p { font-size: 15px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .zip-form { display: flex; gap: 10px; }
+  .zip-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    font-size: 15px;
+    font-family: var(--body);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .zip-input:focus { border-color: var(--navy); }
+  .zip-btn {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 2px;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .zip-btn:hover { background: var(--navy-light); }
+  .chapter-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-top: 3rem;
+  }
+  .chapter-badge {
+    padding: 8px 12px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+    display: block;
+  }
+  .chapter-badge:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  /* ─── NEWSLETTER ─── */
+  .newsletter-section {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 4rem 2rem;
+  }
+  .newsletter-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .newsletter-inner h2 { font-family: var(--serif); font-size: 2rem; color: var(--navy); margin-bottom: 0.6rem; }
+  .newsletter-inner p { font-size: 16px; color: var(--text-muted); line-height: 1.75; }
+  .newsletter-form { display: flex; gap: 10px; }
+  .email-input {
+    flex: 1;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    font-size: 15px;
+    font-family: var(--body);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .email-input:focus { border-color: var(--navy); }
+  .subscribe-btn {
+    background: var(--crimson);
+    color: var(--white);
+    padding: 13px 22px;
+    border: none;
+    border-radius: 2px;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .subscribe-btn:hover { background: #6e1212; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.65);
+    padding: 4rem 2rem 2rem;
+  }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 2rem;
+  }
+  .footer-brand h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--white); margin-bottom: 0.8rem; }
+  .footer-brand p { font-size: 14px; line-height: 1.75; max-width: 280px; }
+  .footer-brand .sar-link { color: var(--gold-light); text-decoration: none; font-size: 13px; font-weight: 600; }
+  .footer-col h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold-light); font-weight: 700; margin-bottom: 1rem; font-family: var(--body); }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.5rem; }
+  .footer-col ul a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .social-links { display: flex; gap: 12px; }
+  .social-link {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .social-link:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+  /* ─── MOBILE ─── */
+  .hamburger { display: none; cursor: pointer; padding: 8px; margin-left: auto; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; transition: all 0.3s; }
+  @media (max-width: 900px) {
+    .hamburger { display: block; }
+    .nav-links { display: none; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-panel { display: none; }
+    .about-grid, .join-section .eligibility-box, .newsletter-inner, .youth-grid { grid-template-columns: 1fr; }
+    .eligibility-box { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .programs-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .chapter-list { grid-template-columns: 1fr 1fr; }
+    .youth-programs-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .steps-grid, .programs-grid, .stats-grid, .chapter-list { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .hero h1 { font-size: 2.2rem; }
+    .zip-form, .newsletter-form { flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+  /* Subtle scroll animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>California Society · Sons of the American Revolution · Since 1889</span>
+  <span>
+    <a href="https://www.sar.org" target="_blank">National SAR ↗</a>
+    &nbsp;&nbsp;
+    <a href="#members">Members Login</a>
+  </span>
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="star-mark">★</span>
+      California SAR
+    </a>
+    <div class="hamburger" onclick="document.querySelector('.nav-links').style.display='flex'">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li>
+        <a href="#programs">Programs ▾</a>
+        <div class="dropdown">
+          <a href="#programs">America 250</a>
+          <a href="#programs">Color Guard</a>
+          <a href="#programs">Veteran Recognition</a>
+          <a href="#programs">Community Awards</a>
+          <a href="#programs">Historical Marking</a>
+          <a href="#programs">Patriot Grave Marking</a>
+          <a href="#programs">Ladies Auxiliary</a>
+        </div>
+      </li>
+      <li>
+        <a href="#youth">Youth ▾</a>
+        <div class="dropdown">
+          <a href="#youth">Poster Contest</a>
+          <a href="#youth">Brochure Contest</a>
+          <a href="#youth">Video Contest</a>
+          <a href="#youth">Eagle Scout Awards</a>
+          <a href="#youth">Essay Contest</a>
+          <a href="#youth">Oration Contest</a>
+          <a href="#youth">ROTC/JROTC</a>
+          <a href="#youth">Valley Forge Teacher</a>
+        </div>
+      </li>
+      <li><a href="#chapters">Chapters</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#members">Members</a></li>
+      <li><a href="#join" class="nav-cta">Join the SAR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <svg class="hero-seal" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="95" stroke="white" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="80" stroke="white" stroke-width="0.75"/>
+    <text x="100" y="55" text-anchor="middle" font-size="9" fill="white" font-family="serif" letter-spacing="3">SONS OF THE AMERICAN</text>
+    <text x="100" y="152" text-anchor="middle" font-size="9" fill="white" font-family="serif" letter-spacing="3">REVOLUTION · 1889</text>
+    <polygon points="100,65 108,88 133,88 113,102 120,125 100,112 80,125 87,102 67,88 92,88" stroke="white" stroke-width="1" fill="none"/>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">California Society</div>
+      <h1>Honoring the <em>Patriots</em> who forged American Freedom</h1>
+      <p class="hero-desc">The California Society of the Sons of the American Revolution preserves the legacy of those who sacrificed for independence — promoting patriotism, education, and civic service across our state.</p>
+      <div class="hero-btns">
+        <a href="#join" class="btn-primary">Join the SAR</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <h3>Upcoming Events</h3>
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="month">Apr</div>
+          <div class="day">23</div>
+        </div>
+        <div class="event-info">
+          <h4>151st Spring Membership Meeting</h4>
+          <p>Hosted by Yosemite Chapter SAR<br>Wyndham Visalia Hotel · Apr 23–26</p>
+          <a href="#events" class="event-link">Register →</a>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="month">Jul</div>
+          <div class="day">10</div>
+        </div>
+        <div class="event-info">
+          <h4>SAR 136th National Congress</h4>
+          <p>National annual gathering of SAR<br>July 10–16, 2025</p>
+          <a href="#events" class="event-link">View Details →</a>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date-badge" style="background: var(--gold); color: var(--navy);">
+          <div class="month">Jul</div>
+          <div class="day">4</div>
+        </div>
+        <div class="event-info">
+          <h4>America 250 — Independence Day</h4>
+          <p>250th Anniversary of American Independence</p>
+          <a href="#programs" class="event-link">America 250 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">135+</div>
+      <div class="stat-label">Years of Service</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">24</div>
+      <div class="stat-label">California Chapters</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">550+</div>
+      <div class="stat-label">Chapters Nationwide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">1889</div>
+      <div class="stat-label">Founded</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section fade-up" id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About the California SAR</div>
+        <h2 class="section-title">Who We Are</h2>
+        <div class="divider"></div>
+        <p>The Sons of the American Revolution honors our Revolutionary War patriot ancestors by promoting patriotism, serving our communities, and educating and inspiring future generations about the founding principles of our nation.</p>
+        <p>California's connection to the SAR is deep: the predecessor organization, the Sons of Revolutionary Sires, was founded on July 4, 1876 — right here in San Francisco. The National Society was formally organized on April 30, 1889, and chartered by the United States Congress in 1906.</p>
+        <p>Today, the California Society maintains 24 chapters throughout the state, bringing together men who are direct descendants of those who served in the cause of American independence.</p>
+        <p>We decorate graves of Revolutionary War soldiers, support excellence in history education, participate in patriotic observances, and preserve historical material relating to the men and women who fought for independence.</p>
+        <a href="#join" class="btn-primary" style="margin-top:1.5rem;">Discover Your Heritage</a>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>Our Mission</h4>
+          <p>To honor Revolutionary War patriot ancestors by promoting patriotism, serving communities, and educating future generations about America's founding principles.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Our Purpose</h4>
+          <p>Organized to "perpetuate the memory of those who, by their services or sacrifices during the war of the American Revolution, achieved the independence of the American People."</p>
+        </div>
+        <div class="highlight-card">
+          <h4>What We Do</h4>
+          <p>We support veterans, conduct living history education, assist with genealogical research, participate in patriotic ceremonies, and recognize outstanding citizens and youth.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Our Values</h4>
+          <p>We uphold the institutions of American freedom, patriotism, respect for national symbols, the value of citizenship, and the unifying force of <em>e pluribus unum</em>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join-section fade-up" id="join">
+  <div class="inner">
+    <div class="section-label">Membership</div>
+    <h2 class="section-title">Join the Sons of the American Revolution</h2>
+    <div class="divider"></div>
+    <p class="section-intro">If one of your ancestors signed a founding document, fought for independence, or assisted the cause of the American Revolution — you can join the SAR. It is the largest male genealogical society in the country.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Determine Eligibility</h3>
+        <p>Verify you have a lineal male ancestor who contributed to the American Revolution — as a soldier, seaman, signer of the Declaration, or patriot of record.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Contact a Local Chapter</h3>
+        <p>Reach out to the Vice President of Membership or your nearest California SAR chapter registrar, who will guide you through the process.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Collect Your Documentation</h3>
+        <p>Gather genealogical records connecting you to your patriot ancestor. The chapter registrar will help you understand what documentation is required.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Submit Your Application</h3>
+        <p>Complete your application through the SAR Online Application Form System, reviewed and submitted with your local chapter registrar's assistance.</p>
+      </div>
+    </div>
+
+    <div class="eligibility-box">
+      <h3>Who is Eligible to Join?</h3>
+      <ul>
+        <li>Age 18 or older (junior memberships available for those under 18)</li>
+        <li>A citizen of good repute in the community</li>
+        <li>A lineal descendant of an American Revolution patriot</li>
+        <li>Does not advocate overthrow of the U.S. Government</li>
+      </ul>
+      <ul>
+        <li>Patriot ancestors include: soldiers, sailors, militia members, minutemen</li>
+        <li>Signers of the Declaration of Independence</li>
+        <li>Members of Committees of Safety or Correspondence</li>
+        <li>Any recognized patriot with overt acts of resistance to British authority</li>
+      </ul>
+    </div>
+
+    <div style="text-align:center; margin-top: 2.5rem;">
+      <a href="mailto:robertscottwhitman@gmail.com" class="btn-primary" style="margin-right: 12px;">Contact the VP of Membership</a>
+      <a href="#chapters" class="btn-outline" style="color:var(--navy); border-color: var(--navy);">Find Your Local Chapter</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section fade-up" id="programs">
+  <div class="inner">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Programs & Activities</h2>
+    <div class="divider"></div>
+    <p class="section-intro">From honoring veterans to marking historic sites, California SAR members actively serve their communities and preserve the legacy of the American Revolution.</p>
+
+    <div class="programs-grid">
+      <a href="#" class="program-card">
+        <div class="program-icon">🇺🇸</div>
+        <h3>America 250</h3>
+        <p>Celebrating the 250th Anniversary of American Independence on July 4, 2026. Resources, events, and commemorations marking this historic milestone.</p>
+        <span class="program-link">Learn More</span>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">🎖️</div>
+        <h3>Color Guard</h3>
+        <p>California SAR Color Guard participates in patriotic ceremonies, parades, and commemorative events across the state, honoring our nation's heritage.</p>
+        <span class="program-link">Learn More</span>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">⭐</div>
+        <h3>Veteran Recognition</h3>
+        <p>We honor and recognize veterans who have served and continue to serve our nation, connecting the legacy of the Revolution to today's defenders of freedom.</p>
+        <span class="program-link">Learn More</span>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">🏆</div>
+        <h3>Community Awards</h3>
+        <p>Recognizing outstanding citizens, law enforcement, firefighters, and community leaders who exemplify the ideals of American patriotism and service.</p>
+        <span class="program-link">Learn More</span>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">🪨</div>
+        <h3>Historical Marking</h3>
+        <p>Placing markers and monuments at significant Revolutionary War and patriotic sites throughout California to preserve history for future generations.</p>
+        <span class="program-link">Learn More</span>
+      </a>
+      <a href="#" class="program-card">
+        <div class="program-icon">✦</div>
+        <h3>Patriot Grave Marking</h3>
+        <p>Honoring the graves of Revolutionary War patriots and soldiers, ensuring their contributions to American independence are permanently commemorated.</p>
+        <span class="program-link">Learn More</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AMERICA 250 -->
+<div class="america250" id="america250">
+  <div class="eyebrow">America 250 · 1776–2026</div>
+  <h2>The 250th Anniversary of <span>American Independence</span></h2>
+  <p>On July 4, 2026, America will celebrate 250 years of independence. The California SAR is a leading voice in commemorating this historic milestone — find resources, events, and ways to participate.</p>
+  <a href="#" class="btn-gold">Explore America 250 Resources</a>
+</div>
+
+<!-- YOUTH -->
+<section class="youth-section fade-up" id="youth">
+  <div class="inner">
+    <div class="youth-grid">
+      <div>
+        <div class="section-label">Youth Programs</div>
+        <h2 class="section-title">Inspiring the Next Generation</h2>
+        <div class="divider"></div>
+        <p style="color:var(--text-mid); margin-bottom: 1.5rem; line-height:1.85;">The California SAR invests in America's future through award programs, scholarships, and educational outreach for students, teachers, and youth organizations throughout California.</p>
+        <p style="color:var(--text-mid); margin-bottom: 1.5rem; line-height:1.85;">From elementary poster contests to ROTC recognition, our youth programs connect young Californians to the stories and principles of the American Revolution.</p>
+        <a href="#" class="btn-primary">View All Youth Programs</a>
+      </div>
+      <div>
+        <div class="youth-programs-list">
+          <a href="#" class="youth-item"><span class="icon">★</span> Americanism Poster Contest</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> Middle School Brochure Contest</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> SAR Youth Video Contest</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> Knight Essay Contest</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> Oration Contest</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> Eagle Scout Recognition</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> King Eagle Scout Award</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> ROTC / JROTC Program</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> NSCC / NLCC Program</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> Valley Forge Teacher Award</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> Spirit of America Program</a>
+          <a href="#" class="youth-item"><span class="icon">★</span> Outstanding Citizenship Award</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters-section fade-up" id="chapters">
+  <div class="inner">
+    <div class="section-label">Find Your Chapter</div>
+    <h2 class="section-title">24 Chapters Across California</h2>
+    <div class="divider"></div>
+    <p class="section-intro">California SAR chapters are active communities of compatriots in your area. Find the chapter nearest you and connect with local members.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+      <div class="chapters-finder">
+        <h3>Find a Chapter Near You</h3>
+        <p>Enter your zip code to locate the nearest California SAR chapter and get in touch with a local registrar.</p>
+        <div class="zip-form">
+          <input type="text" class="zip-input" placeholder="Enter zip code…" maxlength="5">
+          <button class="zip-btn">Find Chapter</button>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:var(--serif); font-size:1.2rem; color:var(--navy); margin-bottom:1rem;">All California Chapters</h4>
+        <div class="chapter-list">
+          <a href="#" class="chapter-badge">Bay Area</a>
+          <a href="#" class="chapter-badge">Los Angeles</a>
+          <a href="#" class="chapter-badge">San Diego</a>
+          <a href="#" class="chapter-badge">Sacramento</a>
+          <a href="#" class="chapter-badge">San Francisco</a>
+          <a href="#" class="chapter-badge">Orange County</a>
+          <a href="#" class="chapter-badge">Fresno</a>
+          <a href="#" class="chapter-badge">Santa Barbara</a>
+          <a href="#" class="chapter-badge">Riverside</a>
+          <a href="#" class="chapter-badge">San Bernardino</a>
+          <a href="#" class="chapter-badge">Yosemite</a>
+          <a href="#" class="chapter-badge">Monterey</a>
+          <a href="#" class="chapter-badge">Napa Valley</a>
+          <a href="#" class="chapter-badge">Ventura</a>
+          <a href="#" class="chapter-badge">Bakersfield</a>
+          <a href="#" class="chapter-badge">Stockton</a>
+          <a href="#" class="chapter-badge">Marin County</a>
+          <a href="#" class="chapter-badge">View All →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section fade-up">
+  <div class="newsletter-inner">
+    <div>
+      <div class="section-label">Stay Connected</div>
+      <h2>The California Compatriot</h2>
+      <p>Read the official newsletter of the California SAR — featuring news, historical articles, chapter updates, and member spotlights.</p>
+    </div>
+    <div>
+      <p style="font-size:15px; color:var(--text-mid); margin-bottom:1rem;">Subscribe to receive updates on events, news, and programs from the California SAR.</p>
+      <div class="newsletter-form">
+        <input type="email" class="email-input" placeholder="Your email address">
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+      <p style="font-size:12px; color:var(--text-muted); margin-top:0.6rem;">No spam, unsubscribe anytime. Past issues available in the Members section.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>★ California SAR</h3>
+      <p>The California Society of the Sons of the American Revolution — honoring our patriot ancestors since 1889, serving our communities across the Golden State.</p>
+      <br>
+      <a href="https://www.sar.org" target="_blank" class="sar-link">National SAR (sar.org) ↗</a>
+      <div class="social-links" style="margin-top:1.2rem;">
+        <a href="https://www.instagram.com/california_sar/" target="_blank" class="social-link" title="Instagram">ig</a>
+        <a href="#" class="social-link" title="Facebook">fb</a>
+        <a href="#" class="social-link" title="Twitter/X">X</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>About & Join</h4>
+      <ul>
+        <li><a href="#about">About the SAR</a></li>
+        <li><a href="#join">How to Join</a></li>
+        <li><a href="#chapters">Find a Chapter</a></li>
+        <li><a href="#">Officers</a></li>
+        <li><a href="#">Ladies Auxiliary</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">America 250</a></li>
+        <li><a href="#">Color Guard</a></li>
+        <li><a href="#">Veteran Recognition</a></li>
+        <li><a href="#">Historical Marking</a></li>
+        <li><a href="#">Patriot Grave Marking</a></li>
+        <li><a href="#">Community Awards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Members</h4>
+      <ul>
+        <li><a href="#">Member Login</a></li>
+        <li><a href="#">Registrar</a></li>
+        <li><a href="#">Treasurer</a></li>
+        <li><a href="#">Secretary</a></li>
+        <li><a href="#">Meeting Archive</a></li>
+        <li><a href="#">New Members</a></li>
+        <li><a href="#">California Compatriot</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 California Society, Sons of the American Revolution. A 501(c)(3) non-profit organization.</span>
+    <span><a href="#">Privacy Policy</a> · <a href="#">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

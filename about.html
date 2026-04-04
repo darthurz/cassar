@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – California SAR</title>
+<link rel="stylesheet" href="shared.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+<style>
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 4rem; }
+.about-text p { color: var(--text-mid); margin-bottom: 1.2rem; line-height: 1.85; }
+.highlight-card { background: var(--white); border-left: 4px solid var(--gold); padding: 1.4rem 1.6rem; border-radius: 0 3px 3px 0; margin-bottom: 1.2rem; }
+.highlight-card h4 { font-family: var(--serif); font-size: 17px; color: var(--navy); margin-bottom: 0.4rem; }
+.highlight-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+.timeline { position: relative; padding-left: 2.5rem; margin-top: 1rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold); }
+.timeline-item { position: relative; margin-bottom: 2.2rem; }
+.timeline-item::before { content: ''; position: absolute; left: -2.5rem; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--gold); }
+.timeline-item .year { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; font-family: var(--body); }
+.timeline-item h4 { font-family: var(--serif); font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+.timeline-item p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin: 0; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.value-card { background: var(--navy); color: var(--white); padding: 2rem; border-radius: 3px; }
+.value-card h3 { font-family: var(--serif); font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.6rem; }
+.value-card p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; margin: 0; }
+@media(max-width:900px){ .about-grid,.values-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<div class="topbar">
+  <span>California Society · Sons of the American Revolution · Since 1889</span>
+  <span><a href="https://www.sar.org" target="_blank">National SAR ↗</a> &nbsp;&nbsp; <a href="members.html">Members Login</a></span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 32 32" style="flex-shrink:0;vertical-align:middle;margin-bottom:2px" xmlns="http://www.w3.org/2000/svg"><polygon points="16,2 19.8,12 30.5,12 22,18.5 25.2,29 16,22.5 6.8,29 10,18.5 1.5,12 12.2,12" fill="#b8860b"/></svg> California SAR</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="about.html" class="active-page">About</a></li>
+      <li><a href="programs.html">Programs ▾</a><div class="dropdown"><a href="programs.html#america250">America 250</a><a href="programs.html#colorguard">Color Guard</a><a href="programs.html#veterans">Veteran Recognition</a><a href="programs.html#awards">Community Awards</a><a href="programs.html#marking">Historical Marking</a><a href="programs.html#graves">Patriot Grave Marking</a><a href="programs.html#ladies">Ladies Auxiliary</a></div></li>
+      <li><a href="youth.html">Youth ▾</a><div class="dropdown"><a href="youth.html#poster">Poster Contest</a><a href="youth.html#brochure">Brochure Contest</a><a href="youth.html#eagle">Eagle Scout Awards</a><a href="youth.html#essay">Essay Contest</a><a href="youth.html#rotc">ROTC/JROTC</a></div></li>
+      <li><a href="chapters.html">Chapters</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html">Members ▾</a><div class="dropdown"><a href="members.html#registrar">Registrar</a><a href="members.html#treasurer">Treasurer</a><a href="members.html#secretary">Secretary</a><a href="officers.html">Officers</a></div></li>
+      <li><a href="join.html" class="nav-cta">Join the SAR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">About Us</div>
+    <h1>The Sons of the American Revolution</h1>
+    <p>A historical, educational, and patriotic non-profit organization dedicated to preserving the legacy of America's founding generation.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> About</div>
+
+<div class="page-body">
+  <div class="about-grid fade-up">
+    <div class="about-text">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Who We Are</h2>
+      <div class="divider"></div>
+      <p>The Sons of the American Revolution honors our Revolutionary War patriot ancestors by promoting patriotism, serving our communities, and educating and inspiring future generations about the founding principles of our nation.</p>
+      <p>California's connection to the SAR runs deep. The predecessor organization — the Sons of Revolutionary Sires — was founded on July 4, 1876, right here in San Francisco, California. Acting on a resolution by the New Jersey Society, delegates from thirteen state societies met at Fraunces Tavern in New York City on April 30, 1889, celebrating the centennial of George Washington's inauguration. On that date, the National Society of the Sons of the American Revolution was organized.</p>
+      <p>The National Society was incorporated in Connecticut on January 17, 1890, and later chartered by the United States Congress on June 6, 1906. Today, the California Society maintains 24 active chapters throughout the state.</p>
+      <p>The California SAR is a 501(c)(3) non-profit corporation. We are non-partisan and welcome all men of good repute who can establish descent from a patriot of the American Revolution.</p>
+      <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="join.html" class="btn-primary">Join the SAR</a>
+        <a href="officers.html" class="btn-outline">Meet Our Officers</a>
+      </div>
+    </div>
+    <div>
+      <div class="highlight-card">
+        <h4>Our Mission</h4>
+        <p>To honor Revolutionary War patriot ancestors by promoting patriotism, serving communities, and educating future generations about America's founding principles.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>Our Purpose</h4>
+        <p>Organized to "perpetuate the memory of those who, by their services or sacrifices during the war of the American Revolution, achieved the independence of the American People."</p>
+      </div>
+      <div class="highlight-card">
+        <h4>What We Do</h4>
+        <p>We decorate the graves of Revolutionary War soldiers, support excellence in history education, participate in patriotic observances, and assist with genealogical research and preservation of historic material.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>Who We Are</h4>
+        <p>The SAR is the largest male genealogical society in the country, with tens of thousands of active members in over 550 chapters across the United States and internationally.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-up" style="background:var(--parchment); padding:3rem; border-radius:4px; margin-bottom:4rem;">
+    <div class="section-label">Our History</div>
+    <h2 class="section-title">Timeline</h2>
+    <div class="divider"></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">July 4, 1876</div>
+        <h4>Sons of Revolutionary Sires Founded</h4>
+        <p>The predecessor organization is founded in San Francisco, California — planting the seeds of the SAR on Independence Day.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">April 30, 1889</div>
+        <h4>National Society Organized</h4>
+        <p>Delegates from 13 state societies meet at Fraunces Tavern, New York City, on the 100th anniversary of Washington's inauguration, formally organizing the National Society.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">January 17, 1890</div>
+        <h4>Incorporated in Connecticut</h4>
+        <p>The National Society of the Sons of the American Revolution is formally incorporated.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">June 6, 1906</div>
+        <h4>Chartered by U.S. Congress</h4>
+        <p>The SAR receives an official charter from the United States Congress, cementing its status as a national patriotic organization.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">Today</div>
+        <h4>24 California Chapters Active</h4>
+        <p>The California Society thrives with 24 chapters from San Diego to the Redwood Empire, continuing the work of honoring patriot ancestors and serving communities.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-up">
+    <div class="section-label">What We Stand For</div>
+    <h2 class="section-title">Our Core Values</h2>
+    <div class="divider"></div>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>American Freedom</h3>
+        <p>We maintain and extend the institutions of American freedom, ensuring the principles of the Revolution remain alive for every generation.</p>
+      </div>
+      <div class="value-card">
+        <h3>True Patriotism</h3>
+        <p>We cultivate an appreciation for authentic patriotism — love of country expressed through service, sacrifice, and civic engagement.</p>
+      </div>
+      <div class="value-card">
+        <h3>National Symbols</h3>
+        <p>We foster deep respect for the American flag, the Constitution, and the national symbols that unite us as a people.</p>
+      </div>
+      <div class="value-card">
+        <h3>Citizenship</h3>
+        <p>We uphold the value of American citizenship — the rights and responsibilities that flow from the sacrifices of our patriot ancestors.</p>
+      </div>
+      <div class="value-card">
+        <h3>E Pluribus Unum</h3>
+        <p>We celebrate the unifying force of "out of many, one" — the ideal that from people of many nations, one nation and one people emerged.</p>
+      </div>
+      <div class="value-card">
+        <h3>Education</h3>
+        <p>We invest in educating youth and communities about the history, ideals, and individuals who shaped the American Revolution and our republic.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>★ California SAR</h3><p>The California Society of the Sons of the American Revolution — honoring our patriot ancestors since 1889.</p><br><a href="https://www.sar.org" target="_blank" class="sar-link">National SAR (sar.org) ↗</a></div>
+    <div class="footer-col"><h4>About & Join</h4><ul><li><a href="about.html">About the SAR</a></li><li><a href="join.html">How to Join</a></li><li><a href="chapters.html">Find a Chapter</a></li><li><a href="officers.html">Officers</a></li></ul></div>
+    <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html#america250">America 250</a></li><li><a href="programs.html#colorguard">Color Guard</a></li><li><a href="programs.html#veterans">Veterans</a></li><li><a href="youth.html">Youth Programs</a></li></ul></div>
+    <div class="footer-col"><h4>Members</h4><ul><li><a href="members.html">Member Login</a></li><li><a href="members.html#registrar">Registrar</a></li><li><a href="members.html#archive">Meeting Archive</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 California Society, Sons of the American Revolution. A 501(c)(3) non-profit organization.</span><span><a href="#">Privacy Policy</a></span></div>
+</footer>
+<script>document.querySelectorAll('.fade-up').forEach(el=>new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.08}).observe(el));</script>
+<style>.em-hide{opacity:0}</style>
+<script>
+(function(){
+  var d=atob;
+  document.querySelectorAll('[data-m]').forEach(function(el){
+    var e=d(el.getAttribute('data-m'));
+    if(el.tagName==='A') el.href='mailto:'+e;
+    if(el.hasAttribute('data-mt')){el.textContent=e;el.classList.remove('em-hide');}
+  });
+})();
+</script>
+</body></html>

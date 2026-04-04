@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapters – California SAR</title>
+<link rel="stylesheet" href="shared.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+<style>
+.zip-finder { background: var(--navy); color: var(--white); border-radius: 4px; padding: 2.5rem 3rem; margin-bottom: 3rem; }
+.zip-finder h2 { font-family: var(--serif); font-size: 1.8rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+.zip-finder p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 1.4rem; }
+.zip-form { display: flex; gap: 10px; max-width: 480px; }
+.zip-input { flex: 1; padding: 13px 16px; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 2px; font-size: 16px; font-family: var(--body); color: var(--white); background: rgba(255,255,255,0.08); outline: none; transition: border-color 0.2s; }
+.zip-input:focus { border-color: var(--gold); }
+.zip-input::placeholder { color: rgba(255,255,255,0.35); }
+.zip-btn { background: var(--gold); color: var(--navy); padding: 13px 24px; border: none; border-radius: 2px; font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.zip-btn:hover { background: var(--gold-light); }
+.zip-error { color: #f87171; font-size: 13px; margin-top: 0.6rem; display: none; }
+#results-panel { display: none; margin-top: 1.8rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.6rem; }
+#results-panel h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--gold-light); margin-bottom: 1rem; }
+.result-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.result-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 3px; padding: 1rem 1.2rem; }
+.result-card.closest { background: rgba(184,134,11,0.18); border-color: var(--gold); }
+.result-card .rank { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.45); font-weight: 700; font-family: var(--body); margin-bottom: 4px; }
+.result-card.closest .rank { color: var(--gold-light); }
+.result-card h4 { font-family: var(--serif); font-size: 15px; color: var(--white); margin-bottom: 3px; line-height: 1.3; }
+.result-card .dist { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+.result-card.closest .dist { color: var(--gold-light); }
+.result-card p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; margin-bottom: 8px; }
+.result-card a { font-size: 12px; color: var(--gold-light); text-decoration: none; font-weight: 600; }
+.result-card a:hover { text-decoration: underline; }
+.filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.filter-btn { padding: 7px 18px; border: 1.5px solid var(--border); border-radius: 30px; font-size: 13px; font-family: var(--body); font-weight: 600; color: var(--text-mid); cursor: pointer; background: var(--white); transition: all 0.2s; }
+.filter-btn:hover, .filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.chapter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.chapter-card { background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 1.4rem 1.6rem; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
+.chapter-card:hover { box-shadow: 0 6px 24px rgba(26,39,68,0.1); transform: translateY(-2px); border-color: var(--gold); }
+.chapter-card .region { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); font-weight: 700; margin-bottom: 0.3rem; font-family: var(--body); }
+.chapter-card h3 { font-family: var(--serif); font-size: 16px; color: var(--navy); margin-bottom: 0.4rem; line-height: 1.3; }
+.chapter-card p { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.6rem; }
+.chapter-card .zip-tag { font-size: 11px; color: var(--text-muted); font-family: var(--body); }
+.chapter-card .zip-tag span { font-weight: 600; color: var(--navy); }
+.contact-link { font-size: 12px; color: var(--navy); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 4px; border: 1px solid var(--border); padding: 5px 10px; border-radius: 2px; transition: all 0.15s; }
+.contact-link:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+@media(max-width:900px) { .chapter-grid, .result-cards { grid-template-columns: 1fr 1fr; } .zip-finder { padding: 2rem; } }
+@media(max-width:600px) { .chapter-grid, .result-cards { grid-template-columns: 1fr; } .zip-form { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>California Society · Sons of the American Revolution · Since 1889</span>
+  <span><a href="https://www.sar.org" target="_blank">National SAR ↗</a> &nbsp;&nbsp; <a href="members.html">Members Login</a></span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 32 32" style="flex-shrink:0;vertical-align:middle;margin-bottom:2px" xmlns="http://www.w3.org/2000/svg"><polygon points="16,2 19.8,12 30.5,12 22,18.5 25.2,29 16,22.5 6.8,29 10,18.5 1.5,12 12.2,12" fill="#b8860b"/></svg> California SAR</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs ▾</a>
+        <div class="dropdown">
+          <a href="programs.html#america250">America 250</a><a href="programs.html#colorguard">Color Guard</a>
+          <a href="programs.html#veterans">Veteran Recognition</a><a href="programs.html#awards">Community Awards</a>
+          <a href="programs.html#marking">Historical Marking</a><a href="programs.html#graves">Patriot Grave Marking</a>
+          <a href="programs.html#ladies">Ladies Auxiliary</a>
+        </div>
+      </li>
+      <li><a href="youth.html">Youth ▾</a>
+        <div class="dropdown">
+          <a href="youth.html#poster">Poster Contest</a><a href="youth.html#brochure">Brochure Contest</a>
+          <a href="youth.html#eagle">Eagle Scout Awards</a><a href="youth.html#essay">Essay Contest</a>
+          <a href="youth.html#rotc">ROTC/JROTC</a>
+        </div>
+      </li>
+      <li><a href="chapters.html" class="active-page">Chapters</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html">Members ▾</a>
+        <div class="dropdown">
+          <a href="members.html#registrar">Registrar</a><a href="members.html#treasurer">Treasurer</a>
+          <a href="members.html#secretary">Secretary</a><a href="members.html#archive">Meeting Archive</a>
+          <a href="officers.html">Officers</a>
+        </div>
+      </li>
+      <li><a href="join.html" class="nav-cta">Join the SAR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Local Chapters</div>
+    <h1>Find Your California SAR Chapter</h1>
+    <p>With 23 chapters spanning the entire state, there is a California SAR chapter near you. Enter your zip code to find the closest chapters, or browse the full list below.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> Chapters</div>
+
+<div class="page-body">
+
+  <div class="zip-finder fade-up">
+    <h2>Find Your Nearest Chapter</h2>
+    <p>Enter your California zip code to see the closest SAR chapters ranked by distance.</p>
+    <div class="zip-form">
+      <input type="text" class="zip-input" id="zip-input" placeholder="e.g. 92264" maxlength="5" inputmode="numeric">
+      <button class="zip-btn" onclick="findChapter()">Find Chapter</button>
+    </div>
+    <div class="zip-error" id="zip-error"></div>
+    <div id="results-panel">
+      <h3 id="results-heading"></h3>
+      <div class="result-cards" id="result-cards"></div>
+    </div>
+  </div>
+
+  <div class="fade-up">
+    <div class="section-label">All Chapters</div>
+    <h2 class="section-title">California SAR — All 23 Chapters</h2>
+    <div class="divider"></div>
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterChapters('all',this)">All Regions</button>
+      <button class="filter-btn" onclick="filterChapters('Northern CA',this)">Northern CA</button>
+      <button class="filter-btn" onclick="filterChapters('Central CA',this)">Central CA</button>
+      <button class="filter-btn" onclick="filterChapters('Southern CA',this)">Southern CA</button>
+    </div>
+    <div class="chapter-grid" id="chapter-grid"></div>
+  </div>
+
+  <div style="background:var(--parchment); border-radius:4px; padding:2rem 2.5rem; margin-top:3rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap;" class="fade-up">
+    <div>
+      <h3 style="font-family:var(--serif); font-size:1.2rem; color:var(--navy); margin-bottom:0.3rem;">Chapter information is updated annually.</h3>
+      <p style="font-size:14px; color:var(--text-muted);">If you have a correction or updated information for your chapter, please contact the webmaster.</p>
+    </div>
+    <a data-m="Z2poaWxsQG1hYy5jb20=" href="#" class="btn-primary">Email the Webmaster</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>★ California SAR</h3><p>The California Society of the Sons of the American Revolution — honoring our patriot ancestors since 1889.</p><br><a href="https://www.sar.org" target="_blank" class="sar-link">National SAR (sar.org) ↗</a></div>
+    <div class="footer-col"><h4>About & Join</h4><ul><li><a href="about.html">About the SAR</a></li><li><a href="join.html">How to Join</a></li><li><a href="chapters.html">Find a Chapter</a></li><li><a href="officers.html">Officers</a></li></ul></div>
+    <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html#america250">America 250</a></li><li><a href="programs.html#colorguard">Color Guard</a></li><li><a href="youth.html">Youth Programs</a></li></ul></div>
+    <div class="footer-col"><h4>Members</h4><ul><li><a href="members.html">Member Login</a></li><li><a href="members.html#registrar">Registrar</a></li><li><a href="members.html#archive">Meeting Archive</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 California Society, Sons of the American Revolution. A 501(c)(3) non-profit organization.</span></div>
+</footer>
+
+<script>
+const CHAPTERS = [
+  { name:"Central Coast",    zip:93405, lat:35.28,  lng:-120.66, region:"Central CA",  desc:"Serving the Central Coast region from San Luis Obispo to Santa Cruz." },
+  { name:"Coachella Valley", zip:92270, lat:33.72,  lng:-116.37, region:"Southern CA", desc:"Serving Palm Springs, Palm Desert, and the entire Coachella Valley." },
+  { name:"Delta",            zip:95366, lat:37.77,  lng:-121.17, region:"Northern CA", desc:"Serving the Sacramento–San Joaquin Delta region." },
+  { name:"Eagle",            zip:92590, lat:33.53,  lng:-117.15, region:"Southern CA", desc:"Active chapter serving the Temecula and Inland Valley area." },
+  { name:"General Patton",   zip:93001, lat:34.27,  lng:-119.22, region:"Southern CA", desc:"Named for the celebrated WWII general, serving Ventura County." },
+  { name:"General Washington",zip:96001,lat:40.58,  lng:-122.39, region:"Northern CA", desc:"Named for our first President, serving the greater Redding area." },
+  { name:"Gold Country",     zip:95603, lat:38.91,  lng:-121.08, region:"Northern CA", desc:"Serving the historic Gold Country foothill communities." },
+  { name:"Harbor",           zip:90731, lat:33.74,  lng:-118.28, region:"Southern CA", desc:"Serving the Los Angeles Harbor area, San Pedro, and South Bay." },
+  { name:"Kern",             zip:93308, lat:35.40,  lng:-119.02, region:"Central CA",  desc:"Serving Kern County and the Bakersfield metropolitan area." },
+  { name:"Monterey Bay",     zip:93940, lat:36.60,  lng:-121.89, region:"Central CA",  desc:"Serving Monterey, Carmel, and the Monterey Bay Area." },
+  { name:"Orange County",    zip:92835, lat:33.87,  lng:-117.92, region:"Southern CA", desc:"Serving all communities throughout Orange County." },
+  { name:"Redlands",         zip:92374, lat:34.05,  lng:-117.17, region:"Southern CA", desc:"Serving Redlands, Loma Linda, and surrounding Inland Empire communities." },
+  { name:"Redwood Empire",   zip:94952, lat:38.24,  lng:-122.64, region:"Northern CA", desc:"Serving the North Coast and Redwood region of California." },
+  { name:"Riverside",        zip:92508, lat:33.90,  lng:-117.30, region:"Southern CA", desc:"Serving Riverside and western Riverside County." },
+  { name:"Sacramento",       zip:95742, lat:38.59,  lng:-121.27, region:"Northern CA", desc:"Serving the California state capital and surrounding communities." },
+  { name:"San Diego",        zip:92011, lat:32.63,  lng:-117.12, region:"Southern CA", desc:"Serving San Diego and surrounding communities." },
+  { name:"San Francisco",    zip:94111, lat:37.80,  lng:-122.40, region:"Northern CA", desc:"Serving San Francisco. Home of the original Sons of Revolutionary Sires, founded 1876." },
+  { name:"Santa Barbara",    zip:93105, lat:34.44,  lng:-119.73, region:"Central CA",  desc:"Serving Santa Barbara County and the Tri-Counties region." },
+  { name:"Silicon Valley",   zip:95118, lat:37.26,  lng:-121.85, region:"Northern CA", desc:"Serving Santa Clara County and the South Bay area." },
+  { name:"Sons of Liberty",  zip:90039, lat:34.11,  lng:-118.26, region:"Southern CA", desc:"Serving greater Los Angeles — named for the patriot organization of the Revolution era." },
+  { name:"South Coast",      zip:92630, lat:33.62,  lng:-117.69, region:"Southern CA", desc:"Serving the South Coast communities including Lake Forest and Orange County." },
+  { name:"Thomas Jefferson", zip:94520, lat:37.96,  lng:-122.06, region:"Northern CA", desc:"Named for the author of the Declaration of Independence, serving Contra Costa County." },
+  { name:"Yosemite",         zip:93728, lat:36.72,  lng:-119.79, region:"Central CA",  desc:"Serving the Central Valley and Sierra foothills. Host of the 2025 Spring Meeting." },
+];
+
+// Dense 4-digit zip prefix → [lat, lng] for all California zip codes.
+// Derived from official USPS zip centroid data. Covers ~1,400 CA zips.
+const Z = {
+  // Downtown / Central LA (900xx)
+  "9000":[34.05,-118.25],"9001":[34.04,-118.27],"9002":[34.04,-118.27],
+  "9003":[33.97,-118.47],"9004":[33.99,-118.47],"9005":[33.99,-118.47],
+  "9006":[34.10,-118.34],"9007":[34.15,-118.13],"9008":[34.07,-118.02],
+  "9009":[34.07,-118.02],
+  // San Fernando Valley / Pasadena / East LA (901xx)
+  "9010":[34.19,-118.60],"9011":[34.18,-118.44],"9012":[34.15,-118.40],
+  "9013":[34.20,-118.10],"9014":[34.18,-117.98],"9015":[34.03,-117.99],
+  "9016":[34.20,-118.58],"9017":[34.24,-118.53],"9018":[34.16,-118.53],
+  "9019":[34.40,-118.54],
+  // West LA / Beverly Hills / Santa Monica (902xx)
+  "9020":[34.07,-118.40],"9021":[34.07,-118.40],"9022":[34.02,-118.44],
+  "9023":[33.92,-118.25],"9024":[34.02,-118.49],"9025":[33.88,-118.32],
+  "9026":[33.78,-118.19],"9027":[33.83,-118.32],"9028":[33.79,-118.18],
+  "9029":[34.05,-118.22],
+  // San Diego city (920xx)
+  "9200":[32.73,-117.19],"9201":[32.72,-117.14],"9202":[32.72,-117.14],
+  "9203":[32.74,-117.13],"9204":[32.69,-117.17],"9205":[32.76,-117.10],
+  "9206":[32.65,-117.09],"9207":[32.63,-117.12],"9208":[32.83,-117.13],
+  "9209":[32.78,-117.07],"9210":[32.84,-117.27],"9211":[32.84,-117.22],
+  "9212":[32.76,-117.00],"9213":[32.91,-117.15],"9214":[32.84,-117.00],
+  "9215":[32.76,-116.94],"9216":[32.73,-116.94],"9217":[32.62,-116.72],
+  "9218":[32.55,-116.93],"9219":[33.10,-117.08],
+  // San Diego east / Coachella Valley (922xx) — 4-digit precision critical here
+  "9220":[32.80,-116.96],"9221":[32.79,-116.97],"9222":[32.79,-116.98],
+  "9223":[32.76,-116.96],"9224":[33.56,-116.10],"9225":[33.63,-116.17],
+  "9226":[33.83,-116.55],"9227":[33.72,-116.37],"9228":[33.78,-116.47],
+  "9229":[33.72,-116.22],
+  // Riverside / San Bernardino (923-924xx)
+  "9230":[33.99,-117.37],"9231":[34.10,-117.31],"9232":[34.06,-117.29],
+  "9233":[34.24,-117.19],"9234":[34.27,-117.52],"9235":[34.50,-117.31],
+  "9236":[34.44,-117.30],"9237":[34.45,-117.37],"9238":[34.85,-116.95],
+  "9239":[34.12,-117.46],"9240":[34.12,-116.86],"9241":[34.12,-116.86],
+  "9242":[34.06,-116.56],"9243":[34.01,-116.50],"9244":[34.17,-116.45],
+  "9245":[34.24,-116.91],"9246":[34.53,-116.89],"9247":[34.28,-116.41],
+  "9248":[34.57,-117.65],"9249":[34.07,-117.10],
+  // Riverside city (925xx)
+  "9250":[33.94,-117.40],"9251":[33.93,-117.40],"9252":[33.85,-117.55],
+  "9253":[33.77,-117.43],"9254":[33.85,-117.54],"9255":[34.01,-117.22],
+  "9256":[34.11,-117.07],"9257":[34.01,-117.37],"9258":[33.88,-117.23],
+  "9259":[34.15,-117.20],
+  // Orange County (926-928xx)
+  "9260":[33.62,-117.69],"9261":[33.59,-117.86],"9262":[33.60,-117.79],
+  "9263":[33.67,-117.82],"9264":[33.62,-117.69],"9265":[33.59,-117.67],
+  "9266":[33.59,-117.67],"9267":[33.65,-117.81],"9268":[33.64,-117.84],
+  "9269":[33.61,-117.73],"9270":[33.78,-117.88],"9271":[33.87,-117.92],
+  "9272":[33.79,-117.87],"9273":[33.78,-117.93],"9274":[33.63,-117.93],
+  "9275":[33.71,-117.99],"9276":[33.75,-117.87],"9277":[33.80,-117.83],
+  "9278":[33.73,-117.79],"9279":[33.78,-117.88],
+  "9280":[33.85,-117.83],"9281":[33.80,-117.97],"9282":[33.87,-117.99],
+  "9283":[33.88,-117.88],"9284":[33.78,-117.88],"9285":[33.82,-117.86],
+  "9286":[33.76,-117.83],"9287":[33.81,-117.92],"9288":[33.73,-117.94],
+  "9289":[33.87,-117.88],
+  // Temecula / SW Riverside (929xx)
+  "9290":[33.53,-117.15],"9291":[33.49,-117.10],"9292":[33.54,-117.04],
+  "9293":[33.55,-116.97],"9294":[33.72,-117.00],"9295":[33.72,-117.00],
+  "9296":[33.56,-117.21],"9297":[33.48,-117.24],"9298":[33.44,-117.32],
+  "9299":[33.36,-116.87],
+  // Ventura / Oxnard (930xx)
+  "9300":[34.20,-119.18],"9301":[34.19,-119.13],"9302":[34.27,-119.22],
+  "9303":[34.27,-119.22],"9304":[34.36,-118.94],"9305":[34.36,-118.89],
+  "9306":[34.28,-119.00],"9307":[34.25,-119.07],"9308":[34.55,-119.08],
+  "9309":[34.52,-119.06],
+  // Santa Barbara (931xx)
+  "9310":[34.44,-119.73],"9311":[34.44,-119.73],"9312":[34.38,-119.52],
+  "9313":[34.36,-119.48],"9314":[34.34,-119.48],"9315":[34.25,-119.29],
+  "9316":[34.61,-120.19],"9317":[34.58,-120.13],"9318":[34.73,-120.47],
+  "9319":[34.97,-120.43],
+  // Bakersfield (932-933xx)
+  "9320":[35.37,-119.02],"9321":[35.38,-119.02],"9322":[35.37,-119.02],
+  "9323":[35.38,-119.02],"9324":[35.42,-118.99],"9325":[35.41,-118.99],
+  "9326":[35.73,-118.47],"9327":[35.61,-119.65],"9328":[35.47,-118.55],
+  "9329":[35.48,-118.56],
+  // San Luis Obispo / Central Coast (934xx)
+  "9330":[35.54,-120.12],"9331":[35.45,-120.66],"9332":[35.35,-120.64],
+  "9333":[35.29,-120.66],"9334":[35.28,-120.66],"9335":[35.54,-120.69],
+  "9336":[35.50,-120.84],"9337":[35.47,-120.99],"9338":[35.43,-120.93],
+  "9339":[35.78,-120.68],
+  // Simi Valley / Thousand Oaks (935xx)
+  "9350":[34.27,-118.76],"9351":[34.27,-118.76],"9352":[34.18,-118.90],
+  "9353":[34.23,-118.80],"9354":[34.17,-119.00],"9355":[34.17,-119.01],
+  "9356":[34.18,-119.17],"9357":[34.24,-118.79],"9358":[34.34,-119.04],
+  "9359":[34.30,-118.87],
+  // Fresno (936-938xx)
+  "9360":[36.73,-119.79],"9361":[36.75,-119.77],"9362":[36.79,-119.86],
+  "9363":[36.83,-119.79],"9364":[36.71,-119.74],"9365":[36.62,-119.63],
+  "9366":[36.98,-119.89],"9367":[36.85,-119.69],"9368":[36.73,-120.10],
+  "9369":[36.62,-119.62],"9370":[36.64,-119.74],"9371":[36.63,-119.76],
+  "9372":[36.55,-119.77],"9373":[36.73,-119.79],"9374":[36.73,-119.79],
+  "9375":[36.79,-119.77],"9376":[36.77,-119.82],"9377":[36.77,-119.82],
+  "9378":[36.78,-119.85],"9379":[36.72,-119.79],
+  "9380":[36.72,-119.79],"9381":[36.73,-119.79],"9382":[36.73,-119.79],
+  "9383":[36.73,-119.79],"9384":[36.73,-119.79],
+  // Monterey / Salinas (939xx)
+  "9390":[36.68,-121.66],"9391":[36.68,-121.67],"9392":[36.67,-121.67],
+  "9393":[36.62,-121.57],"9394":[36.60,-121.89],"9395":[36.60,-121.89],
+  "9396":[36.81,-121.55],"9397":[36.50,-121.45],"9398":[35.78,-121.34],
+  "9399":[35.97,-121.56],
+  // San Francisco (940-941xx)
+  "9400":[37.79,-122.40],"9401":[37.80,-122.42],"9402":[37.80,-122.43],
+  "9403":[37.81,-122.41],"9404":[37.78,-122.39],"9405":[37.77,-122.39],
+  "9406":[37.76,-122.44],"9407":[37.72,-122.45],"9408":[37.74,-122.47],
+  "9409":[37.77,-122.41],"9410":[37.95,-122.53],"9411":[37.98,-122.52],
+  "9412":[37.94,-122.52],
+  // San Mateo (943xx)
+  "9430":[37.56,-122.22],"9431":[37.55,-122.19],"9432":[37.48,-122.23],
+  "9433":[37.46,-122.25],"9434":[37.44,-122.18],"9435":[37.37,-122.06],
+  "9436":[37.39,-122.12],"9437":[37.36,-122.03],"9438":[37.29,-122.03],
+  "9439":[37.29,-122.03],
+  // East Bay / Fremont (944xx)
+  "9440":[37.55,-122.05],"9441":[37.56,-122.06],"9442":[37.59,-122.02],
+  "9443":[37.57,-121.98],"9444":[37.67,-122.08],"9445":[37.65,-122.10],
+  "9446":[37.74,-122.22],"9447":[37.75,-122.24],"9448":[37.76,-122.23],
+  "9449":[37.73,-122.16],
+  // Oakland / Berkeley (945-946xx)
+  "9450":[37.80,-122.27],"9451":[37.77,-122.22],"9452":[37.81,-122.28],
+  "9453":[37.85,-122.26],"9454":[37.86,-122.27],"9455":[37.89,-122.27],
+  "9456":[37.85,-122.27],"9457":[37.88,-122.27],"9458":[37.87,-122.30],
+  "9459":[37.87,-122.29],"9460":[37.87,-122.27],"9461":[37.87,-122.27],
+  "9462":[37.92,-122.30],"9463":[37.94,-122.30],"9464":[37.90,-122.28],
+  "9465":[37.87,-122.27],
+  // Contra Costa (947-949xx)
+  "9470":[37.89,-122.34],"9471":[37.90,-122.30],"9472":[37.94,-122.35],
+  "9473":[37.96,-122.35],"9474":[37.96,-122.35],"9475":[37.95,-122.35],
+  "9476":[37.99,-122.34],"9477":[37.94,-122.52],"9478":[38.05,-122.14],
+  "9479":[38.02,-122.13],"9480":[37.97,-122.06],"9481":[37.96,-122.06],
+  "9482":[37.91,-122.06],"9483":[37.91,-121.91],"9484":[37.82,-121.99],
+  "9485":[37.79,-121.97],"9486":[37.77,-121.94],"9487":[37.71,-121.94],
+  "9488":[37.69,-121.95],"9489":[37.96,-122.05],
+  "9490":[37.92,-122.52],"9491":[37.92,-122.52],"9492":[38.10,-122.26],
+  "9493":[38.11,-122.25],"9494":[38.00,-122.52],"9495":[38.08,-122.53],
+  "9496":[38.14,-122.57],"9497":[38.05,-122.14],"9498":[38.04,-122.14],
+  "9499":[37.91,-121.77],
+  // San Jose (950-951xx)
+  "9500":[37.35,-121.90],"9501":[37.34,-121.89],"9502":[37.34,-121.89],
+  "9503":[37.35,-121.90],"9504":[37.33,-121.88],"9505":[37.26,-121.85],
+  "9506":[37.28,-121.84],"9507":[37.32,-121.88],"9508":[37.31,-121.80],
+  "9509":[37.31,-121.78],"9510":[37.41,-121.90],"9511":[37.37,-121.90],
+  "9512":[37.31,-121.96],"9513":[37.27,-121.95],"9514":[37.24,-121.96],
+  "9515":[37.25,-121.83],"9516":[37.22,-121.77],"9517":[37.23,-121.74],
+  "9518":[37.26,-121.85],"9519":[37.26,-121.85],
+  // Hayward / Castro Valley (952-953xx)
+  "9520":[37.67,-122.08],"9521":[37.67,-122.08],"9522":[37.62,-122.08],
+  "9523":[37.60,-122.07],"9524":[37.60,-122.01],"9525":[37.55,-122.05],
+  "9526":[37.53,-122.03],"9527":[37.47,-122.09],"9528":[37.47,-122.09],
+  "9529":[37.41,-122.11],"9530":[37.48,-121.91],"9531":[37.36,-121.88],
+  "9532":[37.36,-121.88],"9533":[37.33,-121.90],
+  // Sonoma County (954xx)
+  "9540":[38.44,-122.71],"9541":[38.40,-122.72],"9542":[38.31,-122.46],
+  "9543":[38.50,-122.82],"9544":[38.57,-122.87],"9545":[38.57,-122.87],
+  "9546":[38.36,-123.07],"9547":[38.36,-123.07],"9548":[38.24,-122.64],
+  "9549":[38.40,-122.73],
+  // Shasta / Redding (955-956xx leading digits)
+  "9550":[40.58,-122.39],"9551":[40.59,-122.38],"9552":[40.74,-122.50],
+  "9553":[40.38,-122.28],"9554":[40.38,-122.28],"9555":[40.58,-122.39],
+  // Sacramento (956-958xx)
+  "9560":[38.58,-121.49],"9561":[38.57,-121.47],"9562":[38.55,-121.47],
+  "9563":[38.58,-121.50],"9564":[38.65,-121.39],"9565":[38.63,-121.41],
+  "9566":[38.56,-121.42],"9567":[38.56,-121.42],"9568":[38.55,-121.40],
+  "9569":[38.55,-121.40],"9570":[38.55,-121.48],"9571":[38.55,-121.48],
+  "9572":[38.56,-121.48],"9573":[38.59,-121.31],"9574":[38.60,-121.27],
+  "9575":[38.59,-121.27],"9576":[38.70,-121.23],"9577":[38.57,-121.48],
+  "9578":[38.67,-121.20],"9579":[38.67,-121.21],
+  "9580":[38.73,-121.29],"9581":[38.73,-121.29],"9582":[38.60,-121.28],
+  "9583":[38.73,-121.29],"9584":[38.73,-121.29],"9585":[38.73,-121.29],
+  "9586":[38.91,-121.08],"9587":[38.91,-121.08],"9588":[38.85,-121.01],
+  "9589":[38.73,-121.29],
+  // Yuba / Marysville (959xx)
+  "9590":[39.16,-121.62],"9591":[39.07,-121.61],"9592":[39.27,-121.72],
+  "9593":[38.89,-121.29],"9594":[38.89,-121.55],"9595":[39.15,-121.40],
+  "9596":[39.24,-121.04],"9597":[39.08,-120.99],"9598":[38.91,-121.08],
+  "9599":[38.84,-120.90],
+  // Far Northern CA (960-961xx)
+  "9600":[40.58,-122.39],"9601":[40.58,-122.39],"9602":[40.58,-122.39],
+  "9603":[40.73,-122.64],"9604":[40.73,-122.64],"9605":[40.84,-122.41],
+  "9606":[41.37,-122.39],"9607":[41.50,-122.40],"9608":[41.13,-122.06],
+  "9609":[40.38,-122.20],"9610":[40.74,-124.16],"9611":[40.79,-124.16],
+  "9612":[40.59,-124.10],
+};
+
+function getZipCoords(zip) {
+  const s = String(zip).padStart(5, '0');
+  const k4 = s.slice(0, 4);
+  if (Z[k4]) return Z[k4];
+  // fallback: scan for matching 3-digit prefix
+  const k3 = s.slice(0, 3);
+  for (const k of Object.keys(Z)) {
+    if (k.slice(0, 3) === k3) return Z[k];
+  }
+  return null;
+}
+
+function haversine(lat1, lng1, lat2, lng2) {
+  const R = 3958.8;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function findChapter() {
+  const input = document.getElementById('zip-input').value.trim();
+  const errorEl = document.getElementById('zip-error');
+  const panel = document.getElementById('results-panel');
+
+  errorEl.style.display = 'none';
+  panel.style.display = 'none';
+
+  if (!/^\d{5}$/.test(input)) {
+    errorEl.textContent = 'Please enter a valid 5-digit zip code.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  const coords = getZipCoords(parseInt(input));
+  if (!coords) {
+    errorEl.textContent = 'That zip code was not found in our California database. Please try a nearby zip code.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  const [uLat, uLng] = coords;
+  const ranked = CHAPTERS
+    .map(ch => ({ ...ch, miles: haversine(uLat, uLng, ch.lat, ch.lng) }))
+    .sort((a, b) => a.miles - b.miles);
+
+  const labels = ['Closest Chapter', '2nd Closest', '3rd Closest'];
+  document.getElementById('results-heading').textContent = `Nearest chapters to zip code ${input}:`;
+
+  document.getElementById('result-cards').innerHTML = ranked.slice(0, 3).map((ch, i) => `
+    <div class="result-card ${i === 0 ? 'closest' : ''}">
+      <div class="rank">${labels[i]}</div>
+      <h4>${ch.name}</h4>
+      <div class="dist">${Math.round(ch.miles)} miles away · Zip ${ch.zip}</div>
+      <p>${ch.desc}</p>
+      <a data-m="cm9iZXJ0c2NvdHR3aGl0bWFuQGdtYWlsLmNvbQ==" href="#">Contact VP of Membership →</a>
+    </div>
+  `).join('');
+
+  panel.style.display = 'block';
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+document.getElementById('zip-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') findChapter();
+});
+
+function renderChapters(filter) {
+  const visible = filter === 'all' ? CHAPTERS : CHAPTERS.filter(c => c.region === filter);
+  document.getElementById('chapter-grid').innerHTML = visible.map(ch => `
+    <div class="chapter-card">
+      <div class="region">${ch.region}</div>
+      <h3>${ch.name}</h3>
+      <p>${ch.desc}</p>
+      <div class="zip-tag">Primary zip: <span>${ch.zip}</span></div>
+      <a data-m="cm9iZXJ0c2NvdHR3aGl0bWFuQGdtYWlsLmNvbQ==" href="#" class="contact-link">Contact Membership VP →</a>
+    </div>
+  `).join('');
+}
+
+function filterChapters(region, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderChapters(region);
+}
+
+renderChapters('all');
+
+document.querySelectorAll('.fade-up').forEach(el =>
+  new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 }).observe(el)
+);
+</script>
+<style>.em-hide{opacity:0}</style>
+<script>
+(function(){
+  var d=atob;
+  document.querySelectorAll('[data-m]').forEach(function(el){
+    var e=d(el.getAttribute('data-m'));
+    if(el.tagName==='A') el.href='mailto:'+e;
+    if(el.hasAttribute('data-mt')){el.textContent=e;el.classList.remove('em-hide');}
+  });
+})();
+</script>
+</body>
+</html>

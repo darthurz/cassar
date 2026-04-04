@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth Programs – California SAR</title>
+<link rel="stylesheet" href="shared.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+<style>
+.youth-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 3rem; padding: 1.5rem; background: var(--parchment); border-radius: 4px; }
+.youth-nav a { font-size: 13px; color: var(--navy); text-decoration: none; font-weight: 600; padding: 6px 12px; border-radius: 2px; border: 1px solid var(--border); background: var(--white); transition: all 0.2s; }
+.youth-nav a:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.program-block { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 3rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+.program-block:last-child { border-bottom: none; }
+.program-icon-lg { width: 72px; height: 72px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+.program-block h2 { font-family: var(--serif); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.4rem; }
+.program-block .tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; display: block; font-family: var(--body); }
+.program-block p { color: var(--text-mid); font-size: 15px; line-height: 1.8; margin-bottom: 0.8rem; }
+.program-block ul { list-style: none; padding: 0; }
+.program-block ul li { font-size: 14px; color: var(--text-muted); padding: 4px 0 4px 18px; position: relative; }
+.program-block ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+.program-block .btn-sm { font-size: 12px; padding: 8px 16px; font-family: var(--body); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; background: var(--parchment); color: var(--navy); border: 1px solid var(--border); border-radius: 2px; display: inline-block; margin-top: 0.8rem; transition: all 0.2s; }
+.program-block .btn-sm:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.youth-director-box { background: var(--navy); color: var(--white); border-radius: 4px; padding: 2.5rem; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.youth-director-box h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--gold-light); margin-bottom: 0.3rem; }
+.youth-director-box p { font-size: 14px; color: rgba(255,255,255,0.7); }
+.btn-white { background: var(--white); color: var(--navy); padding: 11px 22px; font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; white-space: nowrap; }
+@media(max-width:600px){ .program-block { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>California Society · Sons of the American Revolution · Since 1889</span>
+  <span><a href="https://www.sar.org" target="_blank">National SAR ↗</a> &nbsp;&nbsp; <a href="members.html">Members Login</a></span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 32 32" style="flex-shrink:0;vertical-align:middle;margin-bottom:2px" xmlns="http://www.w3.org/2000/svg"><polygon points="16,2 19.8,12 30.5,12 22,18.5 25.2,29 16,22.5 6.8,29 10,18.5 1.5,12 12.2,12" fill="#b8860b"/></svg> California SAR</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs ▾</a><div class="dropdown"><a href="programs.html#america250">America 250</a><a href="programs.html#colorguard">Color Guard</a><a href="programs.html#veterans">Veteran Recognition</a></div></li>
+      <li><a href="youth.html" class="active-page">Youth ▾</a><div class="dropdown"><a href="#poster">Poster Contest</a><a href="#brochure">Brochure Contest</a><a href="#video">Video Contest</a><a href="#eagle">Eagle Scout Awards</a><a href="#essay">Essay Contest</a><a href="#oration">Oration Contest</a><a href="#rotc">ROTC/JROTC</a><a href="#teacher">Valley Forge Teacher</a></div></li>
+      <li><a href="chapters.html">Chapters</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html">Members ▾</a><div class="dropdown"><a href="members.html#registrar">Registrar</a><a href="officers.html">Officers</a></div></li>
+      <li><a href="join.html" class="nav-cta">Join the SAR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Youth Programs</div>
+    <h1>Inspiring the Next Generation of Patriots</h1>
+    <p>California SAR youth programs connect students, teachers, and young people across the state with the history, ideals, and stories of the American Revolution.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> Youth Programs</div>
+
+<div class="page-body">
+  <div class="youth-director-box fade-up">
+    <div>
+      <h3>Youth Activities Director</h3>
+      <p>The California SAR Youth Activities Director oversees all youth programs, supports individual program chairs, and assists the President on youth program activities and annual reporting.</p>
+      <p style="margin-top:0.4rem;"><strong style="color:var(--gold-light);">Dan McKelvie</strong> — California SAR Youth Activities Director</p>
+    </div>
+    <a data-m="bWNrZWx2aWVAc2JjZ2xvYmFsLm5ldA==" href="#" class="btn-white">Contact Youth Director</a>
+  </div>
+
+  <div class="youth-nav fade-up">
+    <a href="#poster">Poster Contest</a>
+    <a href="#brochure">Brochure Contest</a>
+    <a href="#video">Video Contest</a>
+    <a href="#eagle">Eagle Scout Awards</a>
+    <a href="#essay">Essay Contest</a>
+    <a href="#oration">Oration Contest</a>
+    <a href="#rotc">ROTC / JROTC</a>
+    <a href="#nscc">NSCC / NLCC</a>
+    <a href="#teacher">Teacher Awards</a>
+    <a href="#spirit">Spirit of America</a>
+    <a href="#citizenship">Citizenship Award</a>
+  </div>
+
+  <div id="poster" class="program-block fade-up">
+    <div class="program-icon-lg">🎨</div>
+    <div>
+      <span class="tag">Elementary School</span>
+      <h2>SAR Americanism Poster Contest</h2>
+      <p>The annual Americanism Poster Contest invites elementary school students to create original artwork celebrating American history and patriotism. The contest inspires creativity while connecting young students to the story of the American Revolution.</p>
+      <ul><li>Open to 5th grade students</li><li>Theme changes annually, focusing on American history</li><li>Winners compete at chapter, state, and national levels</li><li>Cash prizes awarded at each level</li></ul>
+      <a href="https://www.sar.org/americanism-elementary-school-poster-contest-2/" target="_blank" class="btn-sm">National Contest Info ↗</a>
+    </div>
+  </div>
+
+  <div id="brochure" class="program-block fade-up">
+    <div class="program-icon-lg">📄</div>
+    <div>
+      <span class="tag">Middle School</span>
+      <h2>SAR Middle School Brochure Contest</h2>
+      <p>Middle school students create informational brochures on topics related to the American Revolution. The contest develops research, writing, and design skills while deepening students' understanding of the founding era.</p>
+      <ul><li>Open to students in grades 6–8</li><li>Brochures must be original research and writing</li><li>Winners advance to state and national competitions</li><li>Cash prizes and certificates awarded</li></ul>
+      <a href="https://www.sar.org/sgt-moses-adams-memorial-middle-school-brochure-contest/" target="_blank" class="btn-sm">National Contest Info ↗</a>
+    </div>
+  </div>
+
+  <div id="video" class="program-block fade-up">
+    <div class="program-icon-lg">🎬</div>
+    <div>
+      <span class="tag">All Ages</span>
+      <h2>SAR Youth Video Contest</h2>
+      <p>The Youth Video Contest challenges students to produce short documentary-style videos on topics related to the American Revolution. The program develops digital media skills and encourages deep engagement with primary sources and historical research.</p>
+      <ul><li>Open to students in various grade levels</li><li>Videos must address a Revolutionary War topic</li><li>Strong emphasis on original research and storytelling</li><li>Winners recognized at state and national levels</li></ul>
+      <a href="https://www.sar.org/youth-video-contest/" target="_blank" class="btn-sm">National Contest Info ↗</a>
+    </div>
+  </div>
+
+  <div id="eagle" class="program-block fade-up">
+    <div class="program-icon-lg">🦅</div>
+    <div>
+      <span class="tag">Scouting</span>
+      <h2>Eagle Scout Awards</h2>
+      <p>The California SAR honors Eagle Scouts through two distinct programs recognizing the highest achievement in Boy Scouting, connecting the values of scouting to the patriotic ideals of the American Revolution.</p>
+      <p><strong>SAR Eagle Scout Certificate:</strong> Presented to every Eagle Scout upon earning their rank, signed by the California SAR President.</p>
+      <p><strong>Arthur M. &amp; Berdena King Eagle Scout Award:</strong> A competitive national award recognizing exceptional Eagle Scouts who demonstrate outstanding citizenship, patriotism, and community service.</p>
+      <p><strong>Robert E. Burt Boy Scout Volunteer Award:</strong> Recognizes adult Scouting volunteers who make extraordinary contributions to youth through the Scouting program.</p>
+      <a data-m="bWNrZWx2aWVAc2JjZ2xvYmFsLm5ldA==" href="#" class="btn-sm">Contact Youth Director</a>
+    </div>
+  </div>
+
+  <div id="essay" class="program-block fade-up">
+    <div class="program-icon-lg">✍️</div>
+    <div>
+      <span class="tag">High School</span>
+      <h2>George S. &amp; Stella M. Knight Essay Contest</h2>
+      <p>High school students write original essays on topics related to the American Revolution, the founding era, and the principles established by the patriots of 1776. The contest develops research and writing skills while deepening historical understanding.</p>
+      <ul><li>Open to students in grades 9–12</li><li>Essays must be original, researched work</li><li>Winners advance to state and national competitions</li><li>Significant cash awards at each level</li></ul>
+      <a href="https://www.sar.org/george-s-stella-m-knight-essay-contest/" target="_blank" class="btn-sm">National Contest Info ↗</a>
+    </div>
+  </div>
+
+  <div id="oration" class="program-block fade-up">
+    <div class="program-icon-lg">🎤</div>
+    <div>
+      <span class="tag">High School</span>
+      <h2>SAR Oration Contest</h2>
+      <p>High school students deliver original orations on topics related to the American Revolution and its lasting significance. The Joseph S. Rumbaugh Historical Oration Contest develops public speaking skills and patriotic knowledge.</p>
+      <ul><li>Open to students in grades 9–12</li><li>Orations must be original compositions</li><li>Contestants judged on content, delivery, and patriotic themes</li><li>Winners compete at chapter, state, and national levels</li></ul>
+      <a href="https://www.sar.org/joseph-s-rumbaugh-historical-oration-contest/" target="_blank" class="btn-sm">National Contest Info ↗</a>
+    </div>
+  </div>
+
+  <div id="rotc" class="program-block fade-up">
+    <div class="program-icon-lg">🎖️</div>
+    <div>
+      <span class="tag">High School / College</span>
+      <h2>ROTC / JROTC Recognition Program</h2>
+      <p>The California SAR recognizes outstanding ROTC and JROTC cadets who demonstrate exceptional leadership, patriotism, and academic achievement. The program honors the connection between today's military programs and the patriots of the Revolution.</p>
+      <ul><li>Open to ROTC and JROTC cadets at high schools and colleges</li><li>Recognition presented at unit ceremonies</li><li>Certificate and medal from the California SAR</li><li>Nominated by commanding officers</li></ul>
+      <a href="https://www.sar.org/rotc-jrotc-recognition-program-3/" target="_blank" class="btn-sm">National Program Info ↗</a>
+    </div>
+  </div>
+
+  <div id="nscc" class="program-block fade-up">
+    <div class="program-icon-lg">⚓</div>
+    <div>
+      <span class="tag">Sea Cadets</span>
+      <h2>NSCC / NLCC Cadet Program</h2>
+      <p>The California SAR recognizes outstanding Naval Sea Cadet Corps (NSCC) and Naval League Cadet Corps (NLCC) cadets for their dedication, leadership, and patriotic service.</p>
+      <ul><li>Recognizes outstanding sea cadet performance</li><li>Presented at unit ceremonies</li><li>Certificate and medal awarded</li></ul>
+      <a data-m="bWNrZWx2aWVAc2JjZ2xvYmFsLm5ldA==" href="#" class="btn-sm">Contact Youth Director</a>
+    </div>
+  </div>
+
+  <div id="teacher" class="program-block fade-up">
+    <div class="program-icon-lg">🍎</div>
+    <div>
+      <span class="tag">Educators</span>
+      <h2>Teacher Recognition Programs</h2>
+      <p>The California SAR recognizes outstanding history educators through two major programs celebrating teachers who inspire a love of American history in their students.</p>
+      <p><strong>Valley Forge Teacher of the Year:</strong> Recognizes a K–12 teacher in California who has demonstrated excellence in teaching American history, particularly relating to the Revolutionary period.</p>
+      <p><strong>Dr. Tom &amp; Betty Lawrence American History Teacher Award:</strong> Grants of up to $1,000 to support history teachers in developing innovative curriculum and programs related to the American Revolution.</p>
+      <a data-m="bWNrZWx2aWVAc2JjZ2xvYmFsLm5ldA==" href="#" class="btn-sm">Contact Youth Director</a>
+    </div>
+  </div>
+
+  <div id="spirit" class="program-block fade-up">
+    <div class="program-icon-lg">🇺🇸</div>
+    <div>
+      <span class="tag">Middle School</span>
+      <h2>Spirit of America Middle School Program</h2>
+      <p>The Spirit of America program recognizes outstanding middle school students who demonstrate exceptional citizenship, patriotism, and commitment to American ideals. Chapter members visit middle schools throughout California to present this award.</p>
+      <ul><li>Nomination by school faculty and administrators</li><li>Recognition at school ceremonies</li><li>Certificate and medal from the California SAR</li></ul>
+      <a data-m="bWNrZWx2aWVAc2JjZ2xvYmFsLm5ldA==" href="#" class="btn-sm">Contact Youth Director</a>
+    </div>
+  </div>
+
+  <div id="citizenship" class="program-block fade-up">
+    <div class="program-icon-lg">🏅</div>
+    <div>
+      <span class="tag">High School</span>
+      <h2>High School Outstanding Citizenship Award</h2>
+      <p>Recognizing high school seniors who have demonstrated exceptional citizenship, community service, and commitment to American values throughout their high school careers.</p>
+      <ul><li>Presented to outstanding high school seniors</li><li>Nominated by school counselors and administrators</li><li>Certificate and medal from the California SAR</li><li>Recognizes service, character, and patriotism</li></ul>
+      <a data-m="bWNrZWx2aWVAc2JjZ2xvYmFsLm5ldA==" href="#" class="btn-sm">Contact Youth Director</a>
+    </div>
+  </div>
+
+  <div style="background:var(--parchment); border-radius:4px; padding:2.5rem; margin-top:2rem; text-align:center;" class="fade-up">
+    <h3 style="font-family:var(--serif); font-size:1.4rem; color:var(--navy); margin-bottom:0.6rem;">Resources for Youth Program Participants</h3>
+    <p style="color:var(--text-muted); margin-bottom:1.5rem;">Download guidelines, release forms, and supporting materials for California SAR youth programs.</p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://www.californiasar.org/wp-content/uploads/Youth-Programs-Summary.pdf" target="_blank" class="btn-primary">Youth Programs Summary (PDF)</a>
+      <a href="https://education.sar.org/youth-awards/" target="_blank" class="btn-outline">National Youth Programs Page ↗</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>★ California SAR</h3><p>The California Society of the Sons of the American Revolution — honoring our patriot ancestors since 1889.</p><br><a href="https://www.sar.org" target="_blank" class="sar-link">National SAR (sar.org) ↗</a></div>
+    <div class="footer-col"><h4>About & Join</h4><ul><li><a href="about.html">About the SAR</a></li><li><a href="join.html">How to Join</a></li><li><a href="chapters.html">Find a Chapter</a></li><li><a href="officers.html">Officers</a></li></ul></div>
+    <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html#america250">America 250</a></li><li><a href="programs.html#colorguard">Color Guard</a></li><li><a href="youth.html">Youth Programs</a></li></ul></div>
+    <div class="footer-col"><h4>Members</h4><ul><li><a href="members.html">Member Login</a></li><li><a href="members.html#registrar">Registrar</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 California Society, Sons of the American Revolution. A 501(c)(3) non-profit organization.</span></div>
+</footer>
+<script>document.querySelectorAll('.fade-up').forEach(el=>new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.08}).observe(el));</script>
+<style>.em-hide{opacity:0}</style>
+<script>
+(function(){
+  var d=atob;
+  document.querySelectorAll('[data-m]').forEach(function(el){
+    var e=d(el.getAttribute('data-m'));
+    if(el.tagName==='A') el.href='mailto:'+e;
+    if(el.hasAttribute('data-mt')){el.textContent=e;el.classList.remove('em-hide');}
+  });
+})();
+</script>
+</body></html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join – California SAR</title>
+<link rel="stylesheet" href="shared.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+<style>
+.steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-bottom: 3rem; }
+.step-card { border: 1px solid var(--border); border-radius: 3px; padding: 2rem 1.5rem; background: var(--white); transition: box-shadow 0.25s, transform 0.25s; }
+.step-card:hover { box-shadow: 0 8px 32px rgba(26,39,68,0.1); transform: translateY(-3px); }
+.step-num { font-family: var(--serif); font-size: 3.5rem; font-weight: 700; color: var(--parchment-dark); line-height: 1; margin-bottom: 1rem; }
+.step-card h3 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 0.6rem; }
+.step-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+.eligibility-box { background: var(--navy); color: var(--white); border-radius: 4px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+.eligibility-box h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--gold-light); margin-bottom: 1rem; grid-column: 1/-1; }
+.eligibility-box ul { list-style: none; font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.9; }
+.eligibility-box ul li::before { content: '★ '; color: var(--gold); font-size: 10px; vertical-align: middle; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 1.4rem 0; }
+.faq-item h4 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 0.5rem; cursor: pointer; }
+.faq-item p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
+.contact-box { background: var(--parchment); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; margin-top: 3rem; text-align: center; }
+.contact-box h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); margin-bottom: 0.6rem; }
+.contact-box p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 16px; }
+@media(max-width:900px){ .steps-grid,.eligibility-box { grid-template-columns:1fr 1fr; } }
+@media(max-width:600px){ .steps-grid,.eligibility-box { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>California Society · Sons of the American Revolution · Since 1889</span>
+  <span><a href="https://www.sar.org" target="_blank">National SAR ↗</a> &nbsp;&nbsp; <a href="members.html">Members Login</a></span>
+</div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><svg width="22" height="22" viewBox="0 0 32 32" style="flex-shrink:0;vertical-align:middle;margin-bottom:2px" xmlns="http://www.w3.org/2000/svg"><polygon points="16,2 19.8,12 30.5,12 22,18.5 25.2,29 16,22.5 6.8,29 10,18.5 1.5,12 12.2,12" fill="#b8860b"/></svg> California SAR</a>
+    <ul class="nav-links" id="main-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs ▾</a><div class="dropdown"><a href="programs.html#america250">America 250</a><a href="programs.html#colorguard">Color Guard</a><a href="programs.html#veterans">Veteran Recognition</a><a href="programs.html#awards">Community Awards</a></div></li>
+      <li><a href="youth.html">Youth ▾</a><div class="dropdown"><a href="youth.html#poster">Poster Contest</a><a href="youth.html#eagle">Eagle Scout Awards</a><a href="youth.html#rotc">ROTC/JROTC</a></div></li>
+      <li><a href="chapters.html">Chapters</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html">Members ▾</a><div class="dropdown"><a href="members.html#registrar">Registrar</a><a href="officers.html">Officers</a></div></li>
+      <li><a href="join.html" class="nav-cta active-page">Join the SAR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Membership</div>
+    <h1>Join the Sons of the American Revolution</h1>
+    <p>If one of your ancestors contributed to American independence, you may be eligible. Getting started is straightforward — and we have people ready to help.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> Join</div>
+
+<div class="page-body">
+  <div class="fade-up">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Four Steps to Membership</h2>
+    <div class="divider"></div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Determine Eligibility</h3>
+        <p>Verify that you have a lineal male ancestor who contributed to the American Revolution — as a soldier, seaman, militiaman, signer of the Declaration, or recognized patriot.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Contact a Local Chapter</h3>
+        <p>Reach out to the VP of Membership, Scott Whitman, or contact a registrar at your nearest California SAR chapter directly. We have 24 chapters across the state.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Collect Your Documentation</h3>
+        <p>Gather genealogical records tracing your lineage to your patriot ancestor. Your chapter registrar will explain exactly what is needed and help you obtain records.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Submit Your Application</h3>
+        <p>Complete your application through the SAR Online Application Form System. Your chapter registrar reviews and submits it for national approval.</p>
+      </div>
+    </div>
+
+    <div class="eligibility-box">
+      <h3>Who Is Eligible to Join?</h3>
+      <ul>
+        <li>Male, age 18 or older</li>
+        <li>A citizen of good repute in the community</li>
+        <li>A lineal descendant of an American Revolution patriot</li>
+        <li>Does not advocate overthrow of the U.S. Government</li>
+      </ul>
+      <ul>
+        <li>Ancestors may include soldiers, sailors, militia, minutemen</li>
+        <li>Signers of the Declaration of Independence</li>
+        <li>Members of Committees of Safety or Correspondence</li>
+        <li>Any recognized patriot who performed overt acts of resistance to British authority</li>
+      </ul>
+    </div>
+
+    <div style="background:var(--parchment); padding:2.5rem 3rem; border-radius:4px; margin-bottom:3rem;">
+      <div class="section-label">Junior Members</div>
+      <h3 style="font-family:var(--serif); font-size:1.4rem; color:var(--navy); margin-bottom:0.8rem;">Young Men Under 18</h3>
+      <p style="color:var(--text-mid); line-height:1.8;">Young men under the age of 18 who meet all other requirements may apply as <strong>Junior Members</strong>. Junior membership is a great way to begin building your connection to American history and to establish your genealogical record early. Contact your local chapter for details on junior membership programs.</p>
+    </div>
+  </div>
+
+  <div class="fade-up">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="divider"></div>
+    <div class="faq-item"><h4>How do I know if my ancestor was a patriot?</h4><p>Many ancestors served without leaving obvious records. The SAR's Patriot Research System contains over 200,000 verified patriot ancestors. Your chapter registrar and our genealogist can help you search records to confirm your lineage. Contact us and we will help you investigate.</p></div>
+    <div class="faq-item"><h4>How long does the application process take?</h4><p>The process typically takes 3–6 months, depending on how readily available your genealogical records are and how quickly documentation can be gathered. Your chapter registrar will guide you at every step.</p></div>
+    <div class="faq-item"><h4>What if I do not know much about my family history?</h4><p>That is perfectly fine — and quite common. The SAR has extensive genealogical resources including the Patriot Research System, record copy services, and a network of genealogical assistants who can help you trace your lineage. Getting started is easier than most people expect.</p></div>
+    <div class="faq-item"><h4>Is there an annual membership fee?</h4><p>Yes, there are national, state, and chapter dues. Your chapter registrar will provide current fee information. The California SAR is a 501(c)(3) non-profit, and dues help fund our educational, patriotic, and community programs.</p></div>
+    <div class="faq-item"><h4>Can I be a member if I live outside California?</h4><p>Your chapter affiliation is typically based on your residence. If you live in California, you join a California chapter. If you are relocating or have questions about which state society is right for you, the National SAR can help direct you.</p></div>
+    <div class="faq-item"><h4>What are the benefits of membership?</h4><p>Members join a community of men with deep shared heritage, gain access to genealogical resources, participate in patriotic programs and events, connect with local chapters, support youth education, and establish a permanent link to the founding generation of the United States.</p></div>
+  </div>
+
+  <div class="contact-box fade-up">
+    <h3>Ready to Get Started?</h3>
+    <p>Contact the California SAR Vice President of Membership — he will connect you with your nearest chapter registrar and answer any questions.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a data-m="cm9iZXJ0c2NvdHR3aGl0bWFuQGdtYWlsLmNvbQ==" href="#" class="btn-primary">Email VP of Membership</a>
+      <a href="chapters.html" class="btn-outline">Find Your Local Chapter</a>
+      <a href="https://www.sar.org/how-to-apply/" target="_blank" class="btn-outline">National SAR Application Info ↗</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>★ California SAR</h3><p>The California Society of the Sons of the American Revolution — honoring our patriot ancestors since 1889.</p><br><a href="https://www.sar.org" target="_blank" class="sar-link">National SAR (sar.org) ↗</a></div>
+    <div class="footer-col"><h4>About & Join</h4><ul><li><a href="about.html">About the SAR</a></li><li><a href="join.html">How to Join</a></li><li><a href="chapters.html">Find a Chapter</a></li><li><a href="officers.html">Officers</a></li></ul></div>
+    <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html#america250">America 250</a></li><li><a href="programs.html#colorguard">Color Guard</a></li><li><a href="programs.html#veterans">Veterans</a></li><li><a href="youth.html">Youth Programs</a></li></ul></div>
+    <div class="footer-col"><h4>Members</h4><ul><li><a href="members.html">Member Login</a></li><li><a href="members.html#registrar">Registrar</a></li><li><a href="members.html#archive">Meeting Archive</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 California Society, Sons of the American Revolution. A 501(c)(3) non-profit organization.</span></div>
+</footer>
+<script>document.querySelectorAll('.fade-up').forEach(el=>new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.08}).observe(el));</script>
+<style>.em-hide{opacity:0}</style>
+<script>
+(function(){
+  var d=atob;
+  document.querySelectorAll('[data-m]').forEach(function(el){
+    var e=d(el.getAttribute('data-m'));
+    if(el.tagName==='A') el.href='mailto:'+e;
+    if(el.hasAttribute('data-mt')){el.textContent=e;el.classList.remove('em-hide');}
+  });
+})();
+</script>
+</body></html>
